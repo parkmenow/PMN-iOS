@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    
+    var loginURL    : String = ""
+    var accessToken : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,14 +42,18 @@ class LoginViewController: UIViewController {
         return false
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func getLoginToken(name: String, password: String) {
+        
+        Alamofire.request(loginURL, method: .get)
+            .responseJSON { response in
+                if response.result.isSuccess {
+                    
+                    print("Sucess! Get response from backend ")
+                    let priceJSON : JSON = JSON(response.result.value!)
+                    self.accessToken = priceJSON.string ?? ""
+                }
+        
+        }
     }
-    */
-
+    
 }
