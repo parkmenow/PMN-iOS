@@ -14,6 +14,8 @@
 		8E2CE8F82217814F001C3501 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E2CE8F62217814F001C3501 /* LaunchScreen.storyboard */; };
 		8ECA4D1D2217C2BD00E2ABE0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA4D1C2217C2BD00E2ABE0 /* LoginViewController.swift */; };
 		8ECA4D1F2217C2DF00E2ABE0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA4D1E2217C2DF00E2ABE0 /* RegisterViewController.swift */; };
+		8EDDBF6C2218529000001F93 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDBF6A2218529000001F93 /* DashboardViewController.swift */; };
+		8EDDBF6D2218529000001F93 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDDBF6B2218529000001F93 /* DashboardViewController.xib */; };
 		BFA1098FAFB091769559F3B2 /* Pods_PMN_frontend_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 531A3672C641F5CC332E7B8F /* Pods_PMN_frontend_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,8 @@
 		8E2CE8F92217814F001C3501 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8ECA4D1C2217C2BD00E2ABE0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8ECA4D1E2217C2DF00E2ABE0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		8EDDBF6A2218529000001F93 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		8EDDBF6B2218529000001F93 /* DashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
 		9890FF4E2F876A79BDFAAE4E /* Pods-PMN-frontend-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMN-frontend-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PMN-frontend-ios/Pods-PMN-frontend-ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +101,8 @@
 				8E2CE8EF2217814E001C3501 /* ViewController.swift */,
 				8ECA4D1C2217C2BD00E2ABE0 /* LoginViewController.swift */,
 				8ECA4D1E2217C2DF00E2ABE0 /* RegisterViewController.swift */,
+				8EDDBF6A2218529000001F93 /* DashboardViewController.swift */,
+				8EDDBF6B2218529000001F93 /* DashboardViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -189,6 +195,7 @@
 				8E2CE8F82217814F001C3501 /* LaunchScreen.storyboard in Resources */,
 				8E2CE8F52217814F001C3501 /* Assets.xcassets in Resources */,
 				8E2CE8F32217814E001C3501 /* Main.storyboard in Resources */,
+				8EDDBF6D2218529000001F93 /* DashboardViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +259,7 @@
 			files = (
 				8ECA4D1D2217C2BD00E2ABE0 /* LoginViewController.swift in Sources */,
 				8E2CE8F02217814E001C3501 /* ViewController.swift in Sources */,
+				8EDDBF6C2218529000001F93 /* DashboardViewController.swift in Sources */,
 				8E2CE8EE2217814E001C3501 /* AppDelegate.swift in Sources */,
 				8ECA4D1F2217C2DF00E2ABE0 /* RegisterViewController.swift in Sources */,
 			);
