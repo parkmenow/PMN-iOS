@@ -402,6 +402,9 @@
                                 <state key="normal" title="Register">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="registerButtonPressed:" destination="ju0-or-dIg" eventType="touchUpInside" id="bci-DA-VP8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -416,6 +419,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="P9B-7P-eGK"/>
                     </view>
+                    <connections>
+                        <outlet property="confirmPassField" destination="fUV-LP-iJR" id="BxM-8s-nIx"/>
+                        <outlet property="emailTextField" destination="Cpc-57-4eL" id="Oi9-4m-eX4"/>
+                        <outlet property="firstNameTextField" destination="FmK-g4-B56" id="o7q-zl-CRq"/>
+                        <outlet property="lastNameTextField" destination="Dkr-Kt-7KQ" id="dku-4R-CTb"/>
+                        <outlet property="passwordField" destination="Qbt-Il-vE5" id="fAt-bL-vSg"/>
+                        <outlet property="phoneNumberField" destination="G9G-YE-BJX" id="BzE-UP-clM"/>
+                        <outlet property="registerButton" destination="H8c-eQ-fio" id="Rgv-IJ-VYo"/>
+                        <outlet property="userNameTextField" destination="FYb-6w-D9o" id="3eu-Pk-X4r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nT5-Rt-DqP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

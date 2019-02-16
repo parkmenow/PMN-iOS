@@ -20,6 +20,20 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
+        
+        let nameText = name.text ?? ""
+        let passwordText = password.text ?? ""
+        
+        if checkPassword(name: nameText, password: passwordText) {
+            
+        }
+        
+    }
+    
+    func checkPassword(name : String , password : String) -> Bool {
+        //Start SVD Progress
+        print("In Check PAssword")
+        return false
     }
     
     /*
