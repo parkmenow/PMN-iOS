@@ -12,6 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardViewController" customModule="PMN_frontend_ios" customModuleProvider="target">
             <connections>
+                <outlet property="EndTimePicker" destination="tqd-lf-Nyx" id="yIt-r5-33f"/>
+                <outlet property="MainLabel" destination="8aX-CS-4x9" id="M8G-yk-kWd"/>
+                <outlet property="StartTimePicker" destination="t6l-VX-PiL" id="CQq-vW-tke"/>
+                <outlet property="VehicleTypePicker" destination="XYE-f3-5ur" id="lsH-xo-dNe"/>
                 <outlet property="view" destination="oIg-3d-xBT" id="yWx-it-k2o"/>
             </connections>
         </placeholder>
@@ -20,20 +24,20 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aX-CS-4x9">
-                    <rect key="frame" x="148.5" y="28" width="78" height="38.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello User " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aX-CS-4x9">
+                    <rect key="frame" x="112.5" y="28" width="150" height="39"/>
                     <fontDescription key="fontDescription" type="system" pointSize="32"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYE-f3-5ur">
-                    <rect key="frame" x="27.5" y="105" width="320" height="100"/>
+                    <rect key="frame" x="27.5" y="105.5" width="320" height="100"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="1mu-GM-ieS"/>
                     </constraints>
                 </pickerView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkj-R9-JTe">
-                    <rect key="frame" x="71.5" y="563" width="232" height="59"/>
+                    <rect key="frame" x="71.5" y="563.5" width="232" height="59"/>
                     <color key="backgroundColor" red="0.35686274509999999" green="0.5568627451" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <fontDescription key="fontDescription" type="system" pointSize="32"/>
                     <color key="tintColor" red="0.35686274509999999" green="0.5568627451" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -41,9 +45,12 @@
                     <state key="normal" title="PARK ME NOW">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="ParkMeButtonPressed:" destination="-1" eventType="touchUpInside" id="Cpg-zH-kpu"/>
+                    </connections>
                 </button>
                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="t6l-VX-PiL" userLabel="StartTime">
-                    <rect key="frame" x="27.5" y="269" width="320" height="100"/>
+                    <rect key="frame" x="27.5" y="269.5" width="320" height="100"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="Jme-yH-DzP"/>
                     </constraints>
@@ -52,7 +59,7 @@
                     </date>
                 </datePicker>
                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="tqd-lf-Nyx" userLabel="EndTime">
-                    <rect key="frame" x="27.5" y="441" width="320" height="100"/>
+                    <rect key="frame" x="27.5" y="441.5" width="320" height="100"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="XjI-Il-0a5"/>
                     </constraints>
@@ -61,7 +68,7 @@
                     </date>
                 </datePicker>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYv-Yj-7qi">
-                    <rect key="frame" x="151.5" y="412" width="72" height="21"/>
+                    <rect key="frame" x="151.5" y="412.5" width="72" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -69,9 +76,12 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zrd-bF-S8l">
                     <rect key="frame" x="10" y="32.5" width="78" height="30"/>
                     <state key="normal" title="My Listings"/>
+                    <connections>
+                        <action selector="listingButtonPressed:" destination="-1" eventType="touchUpInside" id="1fM-NO-SiS"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mwg-XK-i55">
-                    <rect key="frame" x="147.5" y="247" width="80" height="21"/>
+                    <rect key="frame" x="147.5" y="247.5" width="80" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>

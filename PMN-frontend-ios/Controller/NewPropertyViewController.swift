@@ -10,21 +10,32 @@ import UIKit
 
 class NewPropertyViewController: UIViewController {
 
+    @IBOutlet weak var propertyName: UITextField!
+    @IBOutlet weak var descriptionField: UITextField!
+    @IBOutlet weak var addressField: UITextView!
+    @IBOutlet weak var pincodeField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func confirmButtonPressed(_ sender: UIButton) {
     }
-    */
-
+    
+    @IBAction func deleteButtonPressed(_ sender: Any) {
+    }
+    @IBAction func modifySlotsButtonPressed(_ sender: UIButton) {
+        let vc = SlotViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    @IBAction func viewDetailPressed(_ sender: UIButton) {
+        let vc = MapViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    
 }

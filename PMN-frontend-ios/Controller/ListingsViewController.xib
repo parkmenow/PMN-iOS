@@ -35,6 +35,9 @@
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4UU-nU-Dfi">
                     <rect key="frame" x="325" y="72" width="22" height="22"/>
+                    <connections>
+                        <action selector="AddNewProperty:" destination="-1" eventType="touchUpInside" id="A6F-gZ-lyX"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

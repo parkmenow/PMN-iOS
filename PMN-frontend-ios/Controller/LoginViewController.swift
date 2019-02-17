@@ -30,10 +30,10 @@ class LoginViewController: UIViewController {
         let nameText = name.text ?? ""
         let passwordText = password.text ?? ""
         
-//        if checkPassword(name: nameText, password: passwordText) {
-//            let vc = DashboardViewController(input: .init(name: self.name.text))
-//            navigationController?.pushViewController(vc, animated: true)
-//        }
+        if checkPassword(name: nameText, password: passwordText) {
+            let vc = DashboardViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
         
     }
     
