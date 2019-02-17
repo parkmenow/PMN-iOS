@@ -37,16 +37,29 @@ class DashboardViewController: UIViewController {
     }
     //Mark:- Begin here
     
+    var mapView : GMSMapView?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         GMSServices.provideAPIKey(key)
+        mapAndMarker()
         
     }
     
-    let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
-    let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
     
+    func mapAndMarker(){
+        let camera = GMSCameraPosition.camera(withLatitude: 35.660563, longitude: 139.729372, zoom: 16.0)
+        mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        view = mapView
+        print("Inside mapAndMarker")
+        
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: 35.660563, longitude: 139.729372)
+        marker.title = "Work"
+        marker.snippet = "mercari"
+        marker.map = mapView
+        
+    }
     
- 
-
 }

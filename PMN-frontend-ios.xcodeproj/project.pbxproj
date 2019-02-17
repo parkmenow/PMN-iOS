@@ -12,6 +12,13 @@
 		8E2CE8F32217814E001C3501 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E2CE8F12217814E001C3501 /* Main.storyboard */; };
 		8E2CE8F52217814F001C3501 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E2CE8F42217814F001C3501 /* Assets.xcassets */; };
 		8E2CE8F82217814F001C3501 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E2CE8F62217814F001C3501 /* LaunchScreen.storyboard */; };
+		8E5C937D221914BA009BEEC6 /* PropertyLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C937C221914BA009BEEC6 /* PropertyLocations.swift */; };
+		8E9B866D22194756007CCAAF /* ListingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B866B22194756007CCAAF /* ListingsViewController.swift */; };
+		8E9B866E22194756007CCAAF /* ListingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E9B866C22194756007CCAAF /* ListingsViewController.xib */; };
+		8E9B8671221949B1007CCAAF /* NewPropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B866F221949B1007CCAAF /* NewPropertyViewController.swift */; };
+		8E9B8672221949B1007CCAAF /* NewPropertyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E9B8670221949B1007CCAAF /* NewPropertyViewController.xib */; };
+		8E9B867522194C4B007CCAAF /* SlotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B867322194C4B007CCAAF /* SlotViewController.swift */; };
+		8E9B867622194C4B007CCAAF /* SlotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E9B867422194C4B007CCAAF /* SlotViewController.xib */; };
 		8ECA4D1D2217C2BD00E2ABE0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA4D1C2217C2BD00E2ABE0 /* LoginViewController.swift */; };
 		8ECA4D1F2217C2DF00E2ABE0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA4D1E2217C2DF00E2ABE0 /* RegisterViewController.swift */; };
 		8EDDBF6C2218529000001F93 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDBF6A2218529000001F93 /* DashboardViewController.swift */; };
@@ -31,6 +38,13 @@
 		8E2CE8F42217814F001C3501 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E2CE8F72217814F001C3501 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E2CE8F92217814F001C3501 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E5C937C221914BA009BEEC6 /* PropertyLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyLocations.swift; sourceTree = "<group>"; };
+		8E9B866B22194756007CCAAF /* ListingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsViewController.swift; sourceTree = "<group>"; };
+		8E9B866C22194756007CCAAF /* ListingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListingsViewController.xib; sourceTree = "<group>"; };
+		8E9B866F221949B1007CCAAF /* NewPropertyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPropertyViewController.swift; sourceTree = "<group>"; };
+		8E9B8670221949B1007CCAAF /* NewPropertyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewPropertyViewController.xib; sourceTree = "<group>"; };
+		8E9B867322194C4B007CCAAF /* SlotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotViewController.swift; sourceTree = "<group>"; };
+		8E9B867422194C4B007CCAAF /* SlotViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlotViewController.xib; sourceTree = "<group>"; };
 		8ECA4D1C2217C2BD00E2ABE0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8ECA4D1E2217C2DF00E2ABE0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		8EDDBF6A2218529000001F93 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +103,7 @@
 			children = (
 				8EDDBF6E2218DCF900001F93 /* loginUser.swift */,
 				8EDDBF702218E13900001F93 /* newUser.swift */,
+				8E5C937C221914BA009BEEC6 /* PropertyLocations.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -109,6 +124,12 @@
 				8ECA4D1E2217C2DF00E2ABE0 /* RegisterViewController.swift */,
 				8EDDBF6A2218529000001F93 /* DashboardViewController.swift */,
 				8EDDBF6B2218529000001F93 /* DashboardViewController.xib */,
+				8E9B866B22194756007CCAAF /* ListingsViewController.swift */,
+				8E9B866C22194756007CCAAF /* ListingsViewController.xib */,
+				8E9B866F221949B1007CCAAF /* NewPropertyViewController.swift */,
+				8E9B8670221949B1007CCAAF /* NewPropertyViewController.xib */,
+				8E9B867322194C4B007CCAAF /* SlotViewController.swift */,
+				8E9B867422194C4B007CCAAF /* SlotViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -199,10 +220,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E9B8672221949B1007CCAAF /* NewPropertyViewController.xib in Resources */,
 				8E2CE8F82217814F001C3501 /* LaunchScreen.storyboard in Resources */,
+				8E9B867622194C4B007CCAAF /* SlotViewController.xib in Resources */,
 				8E2CE8F52217814F001C3501 /* Assets.xcassets in Resources */,
 				8E2CE8F32217814E001C3501 /* Main.storyboard in Resources */,
 				8EDDBF6D2218529000001F93 /* DashboardViewController.xib in Resources */,
+				8E9B866E22194756007CCAAF /* ListingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,10 +314,14 @@
 			files = (
 				8EDDBF712218E13900001F93 /* newUser.swift in Sources */,
 				8EDDBF6F2218DCF900001F93 /* loginUser.swift in Sources */,
+				8E9B866D22194756007CCAAF /* ListingsViewController.swift in Sources */,
 				8ECA4D1D2217C2BD00E2ABE0 /* LoginViewController.swift in Sources */,
+				8E9B8671221949B1007CCAAF /* NewPropertyViewController.swift in Sources */,
+				8E5C937D221914BA009BEEC6 /* PropertyLocations.swift in Sources */,
 				8E2CE8F02217814E001C3501 /* ViewController.swift in Sources */,
 				8EDDBF6C2218529000001F93 /* DashboardViewController.swift in Sources */,
 				8E2CE8EE2217814E001C3501 /* AppDelegate.swift in Sources */,
+				8E9B867522194C4B007CCAAF /* SlotViewController.swift in Sources */,
 				8ECA4D1F2217C2DF00E2ABE0 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

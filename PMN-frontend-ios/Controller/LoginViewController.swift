@@ -30,10 +30,10 @@ class LoginViewController: UIViewController {
         let nameText = name.text ?? ""
         let passwordText = password.text ?? ""
         
-        if checkPassword(name: nameText, password: passwordText) {
-            let vc = DashboardViewController(input: .init(name: self.name.text))
-            navigationController?.pushViewController(vc, animated: true)
-        }
+//        if checkPassword(name: nameText, password: passwordText) {
+//            let vc = DashboardViewController(input: .init(name: self.name.text))
+//            navigationController?.pushViewController(vc, animated: true)
+//        }
         
     }
     
@@ -45,7 +45,7 @@ class LoginViewController: UIViewController {
     func checkPassword(name : String , password : String) -> Bool {
         //Start SVD Progress
         print("In Check PAssword")
-        getLoginToken(name: name, password: password)
+//        getLoginToken(name: name, password: password)
         //make call to backend with name and password and
         return true
     }

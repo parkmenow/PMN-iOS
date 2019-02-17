@@ -48,10 +48,10 @@ class RegisterViewController: UIViewController {
         }
         
         registerUser(newuser:  user)
-        
-        let vc = DashboardViewController(input: .init( name: user.fname))
-        navigationController?.pushViewController(vc, animated: true)
-        
+//
+//        let vc = DashboardViewController(input: .init( name: user.fname))
+//        navigationController?.pushViewController(vc, animated: true)
+//
         
         
     }
@@ -79,13 +79,13 @@ class RegisterViewController: UIViewController {
     func registerUser(newuser : newUser) {
         //Make POST request to endpoint to register
         
-//        let parameters : [String : Any] = ["user": newuser]
-//        let url = NSURL(string: "http://localhost:8080")!
+        let parameters : Parameters = Parameters(dictionaryLiteral: ("user", newuser))
+        let url = URL(string: "http://localhost:8080")!
 //
-//        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil)
+        Alamofire.upload(parameters, to: url)
+        }
 //        Alamofire.request(url,method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: [:])
-        
-    }
+    
     
 
 
