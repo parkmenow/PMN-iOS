@@ -1,3 +1,3 @@
 # PMN-iOS
 
-This is an ParkMeNow Frontend iOS App.
+This is ParkMeNow Frontend iOS App.
