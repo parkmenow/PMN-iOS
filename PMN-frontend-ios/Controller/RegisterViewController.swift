@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SwiftyJSON
+import Alamofire
 
 class RegisterViewController: UIViewController {
 
@@ -19,7 +21,37 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var confirmPassField: UITextField!
     
     @IBOutlet weak var registerButton: UIButton!
+    
+    
+    
+    
+    
+    
     @IBAction func registerButtonPressed(_ sender: UIButton) {
+        
+        let fname = firstNameTextField.text  ?? ""
+        let lname = lastNameTextField.text ?? ""
+        let uname = userNameTextField.text ?? ""
+        let email = emailTextField.text ?? ""
+        let phone = phoneNumberField.text ?? ""
+        let password = passwordField.text ?? ""
+        let confirmPass = confirmPassField.text ?? ""
+        
+        if password != confirmPass {
+            return
+        }
+        
+        let user = newUser(fname: fname, lname: lname, uname: uname, email: email, phone: phone, password: password)
+        
+        if !validate_values(user: user) {
+            return
+        }
+        
+        registerUser(newuser:  user)
+        
+        let vc = DashboardViewController(input: .init( name: user.fname))
+        navigationController?.pushViewController(vc, animated: true)
+        
         
         
     }
@@ -37,10 +69,23 @@ class RegisterViewController: UIViewController {
     
     //MARK:- Fields Validation
     
+    func validate_values(user: newUser) ->Bool {
+        print(user)
+        return true
+    }
     
     //MARK:- Networking
     
-    
+    func registerUser(newuser : newUser) {
+        //Make POST request to endpoint to register
+        
+//        let parameters : [String : Any] = ["user": newuser]
+//        let url = NSURL(string: "http://localhost:8080")!
+//
+//        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil)
+//        Alamofire.request(url,method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: [:])
+        
+    }
     
 
 

@@ -9,4 +9,6 @@ target 'PMN-frontend-ios' do
 pod 'SwiftyJSON'
 pod 'Alamofire'
 pod 'SVProgressHUD'
+pod 'GoogleMaps'
+pod 'GooglePlaces'
 end

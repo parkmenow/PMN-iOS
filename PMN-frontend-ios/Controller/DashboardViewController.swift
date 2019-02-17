@@ -7,18 +7,22 @@
 //
 
 import UIKit
+import GoogleMaps
+import GooglePlaces
 
 class DashboardViewController: UIViewController {
-
+    
+    
+    
+    //MARK:- Dont know whats happening here
     struct Input {
         var name: String?
     }
     
+    let key = "AIzaSyAzesTC93HNwqUfAS2ONoc2_LHygrLQ4qU"
+    
     var state: Input
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
+ 
 
     init(input: Input) {
         self.state = input
@@ -31,14 +35,18 @@ class DashboardViewController: UIViewController {
     func input(_ input: Input) {
         state = input
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //Mark:- Begin here
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        GMSServices.provideAPIKey(key)
+        
     }
-    */
+    
+    let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
+    let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+    
+    
+ 
 
 }

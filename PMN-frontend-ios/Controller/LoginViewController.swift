@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    var loginURL    : String = "https://pokeapi.co/api/v2/"
+    var loginURL    : String = "https://pokeapi.co/api/v2/ability/"
     var accessToken : String = ""
     
     override func viewDidLoad() {
@@ -45,6 +45,7 @@ class LoginViewController: UIViewController {
     func checkPassword(name : String , password : String) -> Bool {
         //Start SVD Progress
         print("In Check PAssword")
+        getLoginToken(name: name, password: password)
         //make call to backend with name and password and
         return true
     }
@@ -54,13 +55,14 @@ class LoginViewController: UIViewController {
     
     func getLoginToken(name: String, password: String) {
     
-        Alamofire.request(loginURL, method: .post)
+        Alamofire.request(loginURL, method: .get)
             .responseJSON { response in
                 if response.result.isSuccess {
                     
                     print("Sucess! Get response from backend for login")
                     let tokenJSON : JSON = JSON(response.result.value!)
-                    self.accessToken = tokenJSON.string ?? ""
+                    print(tokenJSON)
+//                    self.accessToken = tokenJSON.string ?? ""
                 }
                 
 //                if response.response?.statusCode == 200 {

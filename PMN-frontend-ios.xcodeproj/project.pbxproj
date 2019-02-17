@@ -16,6 +16,8 @@
 		8ECA4D1F2217C2DF00E2ABE0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA4D1E2217C2DF00E2ABE0 /* RegisterViewController.swift */; };
 		8EDDBF6C2218529000001F93 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDBF6A2218529000001F93 /* DashboardViewController.swift */; };
 		8EDDBF6D2218529000001F93 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDDBF6B2218529000001F93 /* DashboardViewController.xib */; };
+		8EDDBF6F2218DCF900001F93 /* loginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDBF6E2218DCF900001F93 /* loginUser.swift */; };
+		8EDDBF712218E13900001F93 /* newUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDBF702218E13900001F93 /* newUser.swift */; };
 		BFA1098FAFB091769559F3B2 /* Pods_PMN_frontend_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 531A3672C641F5CC332E7B8F /* Pods_PMN_frontend_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,8 @@
 		8ECA4D1E2217C2DF00E2ABE0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		8EDDBF6A2218529000001F93 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		8EDDBF6B2218529000001F93 /* DashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
+		8EDDBF6E2218DCF900001F93 /* loginUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginUser.swift; sourceTree = "<group>"; };
+		8EDDBF702218E13900001F93 /* newUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newUser.swift; sourceTree = "<group>"; };
 		9890FF4E2F876A79BDFAAE4E /* Pods-PMN-frontend-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMN-frontend-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PMN-frontend-ios/Pods-PMN-frontend-ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +87,8 @@
 		8E2CE8FF2217818B001C3501 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8EDDBF6E2218DCF900001F93 /* loginUser.swift */,
+				8EDDBF702218E13900001F93 /* newUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -144,6 +150,7 @@
 				8E2CE8E72217814E001C3501 /* Frameworks */,
 				8E2CE8E82217814E001C3501 /* Resources */,
 				6CCBC5CCF294412DE0D762E2 /* [CP] Embed Pods Frameworks */,
+				C594AA57AD6D069294F21A60 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -250,6 +257,30 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PMN-frontend-ios/Pods-PMN-frontend-ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C594AA57AD6D069294F21A60 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PMN-frontend-ios/Pods-PMN-frontend-ios-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PMN-frontend-ios/Pods-PMN-frontend-ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -257,6 +288,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EDDBF712218E13900001F93 /* newUser.swift in Sources */,
+				8EDDBF6F2218DCF900001F93 /* loginUser.swift in Sources */,
 				8ECA4D1D2217C2BD00E2ABE0 /* LoginViewController.swift in Sources */,
 				8E2CE8F02217814E001C3501 /* ViewController.swift in Sources */,
 				8EDDBF6C2218529000001F93 /* DashboardViewController.swift in Sources */,
