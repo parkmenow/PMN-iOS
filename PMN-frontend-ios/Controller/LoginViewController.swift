@@ -15,9 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-    
-    var loginURL    : String = "http://192.168.10.78:8080/login"
-    var accessToken : String = ""
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +28,8 @@ class LoginViewController: UIViewController {
         let nameText = name.text ?? ""
         let passwordText = password.text ?? ""
         
-        if checkPassword(name: nameText, password: passwordText) {
-            callDashboard(with: self.accessToken)
+        if !checkPassword(name: nameText, password: passwordText) {
+            print("Invalid passsword")
             
         }
         
@@ -58,13 +56,18 @@ func AlamoLoginPost(user username: String , password : String ){
         let jsonData = try JSONEncoder().encode(olduser)
         let params = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments) as? [String: Any]
         
-        Alamofire.request( self.loginURL , method: .post, parameters: params, encoding: JSONEncoding.default)
+       
+        
+        print("Before logging in at "+globalData.loginURL)
+        
+        Alamofire.request( globalData.loginURL , method: .post, parameters: params, encoding: JSONEncoding.default)
                 .responseJSON { response in
                     if let data = response.data {
                         do{
                             let json = try JSON(data: data)
-                            self.accessToken = json["token"].string!
-                            print(self.accessToken)
+                            globalData.accessToken = json["token"].string!
+                            print(globalData.accessToken)
+                            self.callDashboard(with: globalData.accessToken)
                         } catch{
                             print("Server sent not data")
                         }
@@ -78,21 +81,24 @@ func AlamoLoginPost(user username: String , password : String ){
     
     func callDashboard(with token: String)
     {
-        let dashboardURL = ""
+        print("Token is ")
+        print(token)
         let bearer = "Bearer "+token
+        print(bearer)
         
         let headers: HTTPHeaders = [
             "Authorization": bearer,
             "Accept": "application/json"
         ]
         print("About to call dashboard")
-        Alamofire.request(dashboardURL, method: .get, headers: headers).responseJSON { response in
+        Alamofire.request( globalData.dashBoardURL , method: .get, headers: headers).responseJSON { response in
             
             guard let data = response.data else { print("No response from server on dashboard"); return }
+            print(response.result.value!)
             guard let name = String(data: data, encoding: .utf8) else {print("Didn't get name "); return }
             print("Got name as "+name)
-            let vc = DashboardViewController()
-            vc.MainLabel.text = "Hello " + name
+            let vc = DashboardViewController(nibName: "DashboardViewController", bundle: nil)
+            vc.name = "Hello " + name
             self.navigationController?.pushViewController(vc, animated: true)
           
         }

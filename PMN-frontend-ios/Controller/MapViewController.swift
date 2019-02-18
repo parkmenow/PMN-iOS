@@ -12,7 +12,7 @@ import GooglePlaces
 
 class MapViewController: UIViewController {
 
-    let key = "AIzaSyAzesTC93HNwqUfAS2ONoc2_LHygrLQ4qU"
+    let key = globalData.google_map_key
     var mapView : GMSMapView?
 
     override func viewDidLoad() {

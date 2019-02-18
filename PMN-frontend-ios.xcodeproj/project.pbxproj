@@ -28,6 +28,8 @@
 		8E9B868222197C8F007CCAAF /* ConfirmBookingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E9B868022197C8F007CCAAF /* ConfirmBookingViewController.xib */; };
 		8E9B8685221A226A007CCAAF /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B8683221A226A007CCAAF /* PaymentViewController.swift */; };
 		8E9B8686221A226A007CCAAF /* PaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E9B8684221A226A007CCAAF /* PaymentViewController.xib */; };
+		8EB742E4221ACE87004EB212 /* globalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB742E3221ACE87004EB212 /* globalData.swift */; };
+		8EB742E6221ADCD0004EB212 /* property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB742E5221ADCD0004EB212 /* property.swift */; };
 		8ECA4D1D2217C2BD00E2ABE0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA4D1C2217C2BD00E2ABE0 /* LoginViewController.swift */; };
 		8ECA4D1F2217C2DF00E2ABE0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA4D1E2217C2DF00E2ABE0 /* RegisterViewController.swift */; };
 		8EDDBF6C2218529000001F93 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDBF6A2218529000001F93 /* DashboardViewController.swift */; };
@@ -60,6 +62,8 @@
 		8E9B868022197C8F007CCAAF /* ConfirmBookingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmBookingViewController.xib; sourceTree = "<group>"; };
 		8E9B8683221A226A007CCAAF /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		8E9B8684221A226A007CCAAF /* PaymentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentViewController.xib; sourceTree = "<group>"; };
+		8EB742E3221ACE87004EB212 /* globalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globalData.swift; sourceTree = "<group>"; };
+		8EB742E5221ADCD0004EB212 /* property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = property.swift; sourceTree = "<group>"; };
 		8ECA4D1C2217C2BD00E2ABE0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8ECA4D1E2217C2DF00E2ABE0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		8EDDBF6A2218529000001F93 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 				8EDDBF6E2218DCF900001F93 /* loginUser.swift */,
 				8EDDBF702218E13900001F93 /* newUser.swift */,
 				8E5C937C221914BA009BEEC6 /* PropertyLocations.swift */,
+				8EB742E3221ACE87004EB212 /* globalData.swift */,
+				8EB742E5221ADCD0004EB212 /* property.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -346,6 +352,7 @@
 				8ECA4D1D2217C2BD00E2ABE0 /* LoginViewController.swift in Sources */,
 				8E9B8671221949B1007CCAAF /* NewPropertyViewController.swift in Sources */,
 				8E5C937D221914BA009BEEC6 /* PropertyLocations.swift in Sources */,
+				8EB742E4221ACE87004EB212 /* globalData.swift in Sources */,
 				8E2CE8F02217814E001C3501 /* ViewController.swift in Sources */,
 				8E9B8685221A226A007CCAAF /* PaymentViewController.swift in Sources */,
 				8E9B867D22197AA5007CCAAF /* ShowParkingViewController.swift in Sources */,
@@ -353,6 +360,7 @@
 				8E9B868122197C8F007CCAAF /* ConfirmBookingViewController.swift in Sources */,
 				8EDDBF6C2218529000001F93 /* DashboardViewController.swift in Sources */,
 				8E2CE8EE2217814E001C3501 /* AppDelegate.swift in Sources */,
+				8EB742E6221ADCD0004EB212 /* property.swift in Sources */,
 				8E9B867522194C4B007CCAAF /* SlotViewController.swift in Sources */,
 				8ECA4D1F2217C2DF00E2ABE0 /* RegisterViewController.swift in Sources */,
 			);

@@ -28,6 +28,9 @@ class ViewController: UIViewController {
                 print("Data: \(utf8Text)") // original server data as UTF8 string
                 self.serverGet.text = "Connected"
             }
+            else{
+                self.serverGet.text = "Error"
+            }
         }
     }
     
