@@ -8,13 +8,32 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var serverGet: UILabel!
+    let url = "https://pmn-api-1.herokuapp.com/"
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        fetch_intro()
+    }
+    
+    func fetch_intro(){
+        Alamofire.request(url, method: .get)
+            .response { response in
+                if response.data != nil {
+                    
+                   print(response)
+                    
+                } else {
+                    
+                    self.serverGet.text = "Connection Issues"
+                }
+        }
     }
     
 

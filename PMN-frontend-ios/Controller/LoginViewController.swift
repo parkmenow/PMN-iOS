@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    var loginURL    : String = "http://localhost:8080/logi"
+    var loginURL    : String = "http://192.168.10.78:8080/login"
     var accessToken : String = ""
     
     override func viewDidLoad() {
@@ -55,45 +55,71 @@ class LoginViewController: UIViewController {
     
     func getLoginToken(name: String, password: String) {
     
-        let params = "name:\(name), password:\(password)"
+//        let params = "\"u_name\":\"test1\", \"password\":\"test1\""
+        
+        print("In post ")
+        AlamoPost()
+//        post(url: self.loginURL, params: params, successHandler: postHandler)
         
         
-        post(url: self.loginURL, params: params, successHandler: postHandler)
-        
-////        let parameter = ["user":"name"]
-////
-//        Alamofire.request("http://locahost:8080/api/v1/signup", method: .post, parameters: params?)
-////        Alamofire.request(.POST, "http://locahost:8080/api/v1/signup", parameters: params, encoding: .JSON)
-        
-//
-//
-    
     
     }
     
 }
 
-func postHandler(_ response: String) -> Void {
-    print(response)
-}
+//func postHandler(_ response: String) -> Void {
+//    print(response)
+//}
+//
+//func post(url : String, params : String, successHandler: @escaping (_ response: String) -> Void) {
+//    let url = NSURL(string: url)
+//    let params = String(params);
+//    let request = NSMutableURLRequest(url: url! as URL);
+//    request.httpMethod = "POST"
+//    request.httpBody = params.data(using: String.Encoding.utf8)
+//
+//    let task = URLSession.shared.dataTask(with: request as URLRequest) {
+//        data, response, error in
+//
+//        //in case of error
+//        if error != nil {
+//            return
+//        }
+//
+//        let responseString : String = String(data: data!, encoding: String.Encoding.utf8)!
+//        postHandler(responseString)
+//    }
+//    task.resume();
+//}
 
-func post(url : String, params : String, successHandler: @escaping (_ response: String) -> Void) {
-    let url = NSURL(string: url)
-    let params = String(params);
-    let request = NSMutableURLRequest(url: url! as URL);
-    request.httpMethod = "POST"
-    request.httpBody = params.data(using: String.Encoding.utf8)
+func AlamoPost(){
+    let parameters: [String: Any] = [
+        "IdQuiz" : 102,
+        "IdUser" : "iosclient",
+        "User" : "iosclient",
+        "List": [
+            [
+                "IdQuestion" : 5,
+                "IdProposition": 2,
+                "Time" : 32
+            ],
+            [
+                "IdQuestion" : 4,
+                "IdProposition": 3,
+                "Time" : 9
+            ]
+        ]
+    ]
     
-    let task = URLSession.shared.dataTask(with: request as URLRequest) {
-        data, response, error in
-        
-        //in case of error
-        if error != nil {
-            return
-        }
-        
-        let responseString : String = String(data: data!, encoding: String.Encoding.utf8)!
-        postHandler(responseString)
+    let parameterAlam : [String: Any] = [
+        "u_name" : "test1",
+        "password" : "test1"
+    ]
+    
+    let url = "http://192.168.10.78:8080/login"
+    
+    Alamofire.request( url , method: .post, parameters: parameterAlam, encoding: JSONEncoding.default)
+        .responseJSON { response in
+            print(response)
     }
-    task.resume();
 }
