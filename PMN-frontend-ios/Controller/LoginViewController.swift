@@ -31,8 +31,8 @@ class LoginViewController: UIViewController {
         let passwordText = password.text ?? ""
         
         if checkPassword(name: nameText, password: passwordText) {
-            let vc = DashboardViewController()
-            navigationController?.pushViewController(vc, animated: true)
+            callDashboard(with: self.accessToken)
+            
         }
         
     }
@@ -40,81 +40,62 @@ class LoginViewController: UIViewController {
     
     
     
-    // MARK:- Password Check
-    
+    // MARK:- Password Check and Login
     func checkPassword(name : String , password : String) -> Bool {
-        //Start SVD Progress
-        print("In Check PAssword")
-        getLoginToken(name: name, password: password)
-        //make call to backend with name and password and
+        setLoginToken(name: name, password: password)
         return true
     }
     
     
     //MARK:- Networking
-    
-    func getLoginToken(name: String, password: String) {
-    
-//        let params = "\"u_name\":\"test1\", \"password\":\"test1\""
-        
-        print("In post ")
-        AlamoPost(user: name, password: password)
-//        post(url: self.loginURL, params: params, successHandler: postHandler)
-        
-        
-    
+    func setLoginToken(name: String, password: String) {
+        AlamoLoginPost(user: name, password: password)
     }
-    
-}
 
-//func postHandler(_ response: String) -> Void {
-//    print(response)
-//}
-//
-//func post(url : String, params : String, successHandler: @escaping (_ response: String) -> Void) {
-//    let url = NSURL(string: url)
-//    let params = String(params);
-//    let request = NSMutableURLRequest(url: url! as URL);
-//    request.httpMethod = "POST"
-//    request.httpBody = params.data(using: String.Encoding.utf8)
-//
-//    let task = URLSession.shared.dataTask(with: request as URLRequest) {
-//        data, response, error in
-//
-//        //in case of error
-//        if error != nil {
-//            return
-//        }
-//
-//        let responseString : String = String(data: data!, encoding: String.Encoding.utf8)!
-//        postHandler(responseString)
-//    }
-//    task.resume();
-//}
-
-func AlamoPost(user username: String , password : String ){
-    
-//    let parameterAlam : [String: Any] = [
-//        "u_name" : "test1",
-//        "password" : "test1"
-//    ]
-    
+func AlamoLoginPost(user username: String , password : String ){
     let olduser = loginUser(name: username, password : password)
     do {
         let jsonData = try JSONEncoder().encode(olduser)
-        let json = try JSON(data: jsonData)
-        print("User is \n")
-        print(json)
-    } catch {
-        print("error")
+        let params = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments) as? [String: Any]
+        
+        Alamofire.request( self.loginURL , method: .post, parameters: params, encoding: JSONEncoding.default)
+                .responseJSON { response in
+                    if let data = response.data {
+                        do{
+                            let json = try JSON(data: data)
+                            self.accessToken = json["token"].string!
+                            print(self.accessToken)
+                        } catch{
+                            print("Server sent not data")
+                        }
+                    }
+            }
+        } catch {
+                print("error")
+                }
     }
     
-  
     
-//    let url = "http://192.168.10.78:8080/login"
-//
-//    Alamofire.request( url , method: .post, parameters: parameterAlam, encoding: JSONEncoding.default)
-//        .responseJSON { response in
-//            print(response)
-//    }
+    func callDashboard(with token: String)
+    {
+        let dashboardURL = ""
+        let bearer = "Bearer "+token
+        
+        let headers: HTTPHeaders = [
+            "Authorization": bearer,
+            "Accept": "application/json"
+        ]
+        print("About to call dashboard")
+        Alamofire.request(dashboardURL, method: .get, headers: headers).responseJSON { response in
+            
+            guard let data = response.data else { print("No response from server on dashboard"); return }
+            guard let name = String(data: data, encoding: .utf8) else {print("Didn't get name "); return }
+            print("Got name as "+name)
+            let vc = DashboardViewController()
+            vc.MainLabel.text = "Hello " + name
+            self.navigationController?.pushViewController(vc, animated: true)
+          
+        }
+        
+    }
 }
