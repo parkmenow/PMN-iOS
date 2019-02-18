@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F74DA4F3D7D2055DE2FE926 /* Pods_PMN_frontend_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6785808788A6A475C398125D /* Pods_PMN_frontend_ios.framework */; };
 		8E2CE8EE2217814E001C3501 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CE8ED2217814E001C3501 /* AppDelegate.swift */; };
 		8E2CE8F02217814E001C3501 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CE8EF2217814E001C3501 /* ViewController.swift */; };
 		8E2CE8F32217814E001C3501 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E2CE8F12217814E001C3501 /* Main.storyboard */; };
@@ -33,12 +34,10 @@
 		8EDDBF6D2218529000001F93 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDDBF6B2218529000001F93 /* DashboardViewController.xib */; };
 		8EDDBF6F2218DCF900001F93 /* loginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDBF6E2218DCF900001F93 /* loginUser.swift */; };
 		8EDDBF712218E13900001F93 /* newUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDBF702218E13900001F93 /* newUser.swift */; };
-		BFA1098FAFB091769559F3B2 /* Pods_PMN_frontend_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 531A3672C641F5CC332E7B8F /* Pods_PMN_frontend_ios.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		531A3672C641F5CC332E7B8F /* Pods_PMN_frontend_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PMN_frontend_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8784202CD466EC5D7B670EC8 /* Pods-PMN-frontend-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMN-frontend-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-PMN-frontend-ios/Pods-PMN-frontend-ios.release.xcconfig"; sourceTree = "<group>"; };
+		6785808788A6A475C398125D /* Pods_PMN_frontend_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PMN_frontend_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E2CE8EA2217814E001C3501 /* PMN-frontend-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PMN-frontend-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E2CE8ED2217814E001C3501 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E2CE8EF2217814E001C3501 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,7 +66,8 @@
 		8EDDBF6B2218529000001F93 /* DashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
 		8EDDBF6E2218DCF900001F93 /* loginUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginUser.swift; sourceTree = "<group>"; };
 		8EDDBF702218E13900001F93 /* newUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newUser.swift; sourceTree = "<group>"; };
-		9890FF4E2F876A79BDFAAE4E /* Pods-PMN-frontend-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMN-frontend-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PMN-frontend-ios/Pods-PMN-frontend-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		BC055E3F72FBB257D8523219 /* Pods-PMN-frontend-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMN-frontend-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PMN-frontend-ios/Pods-PMN-frontend-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		D72C4B5587C435BCD8D0D53A /* Pods-PMN-frontend-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMN-frontend-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-PMN-frontend-ios/Pods-PMN-frontend-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,20 +75,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFA1098FAFB091769559F3B2 /* Pods_PMN_frontend_ios.framework in Frameworks */,
+				6F74DA4F3D7D2055DE2FE926 /* Pods_PMN_frontend_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C8805726E15EC29DD16915D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6785808788A6A475C398125D /* Pods_PMN_frontend_ios.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		804A5E22BB2B165566001650 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BC055E3F72FBB257D8523219 /* Pods-PMN-frontend-ios.debug.xcconfig */,
+				D72C4B5587C435BCD8D0D53A /* Pods-PMN-frontend-ios.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8E2CE8E12217814E001C3501 = {
 			isa = PBXGroup;
 			children = (
 				8E2CE8EC2217814E001C3501 /* PMN-frontend-ios */,
 				8E2CE8EB2217814E001C3501 /* Products */,
-				A63C6396AF3C6688C0BBE6B8 /* Pods */,
-				BBC2C05018EC88628CC6469C /* Frameworks */,
+				804A5E22BB2B165566001650 /* Pods */,
+				3C8805726E15EC29DD16915D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,15 +144,15 @@
 		8E2CE90022178195001C3501 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8E2CE8F12217814E001C3501 /* Main.storyboard */,
+				8EDDBF6B2218529000001F93 /* DashboardViewController.xib */,
 				8E9B866C22194756007CCAAF /* ListingsViewController.xib */,
 				8E9B8670221949B1007CCAAF /* NewPropertyViewController.xib */,
 				8E9B867422194C4B007CCAAF /* SlotViewController.xib */,
-				8E9B867822195620007CCAAF /* MapViewController.xib */,
-				8EDDBF6B2218529000001F93 /* DashboardViewController.xib */,
 				8E9B867C22197AA5007CCAAF /* ShowParkingViewController.xib */,
 				8E9B868022197C8F007CCAAF /* ConfirmBookingViewController.xib */,
 				8E9B8684221A226A007CCAAF /* PaymentViewController.xib */,
-				8E2CE8F12217814E001C3501 /* Main.storyboard */,
+				8E9B867822195620007CCAAF /* MapViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -166,23 +183,6 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A63C6396AF3C6688C0BBE6B8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				9890FF4E2F876A79BDFAAE4E /* Pods-PMN-frontend-ios.debug.xcconfig */,
-				8784202CD466EC5D7B670EC8 /* Pods-PMN-frontend-ios.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		BBC2C05018EC88628CC6469C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				531A3672C641F5CC332E7B8F /* Pods_PMN_frontend_ios.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -190,12 +190,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8E2CE8FC2217814F001C3501 /* Build configuration list for PBXNativeTarget "PMN-frontend-ios" */;
 			buildPhases = (
-				45F5E38B78C1BA45BE90B960 /* [CP] Check Pods Manifest.lock */,
+				A42AF4D654DD7F1CED2C8905 /* [CP] Check Pods Manifest.lock */,
 				8E2CE8E62217814E001C3501 /* Sources */,
 				8E2CE8E72217814E001C3501 /* Frameworks */,
 				8E2CE8E82217814E001C3501 /* Resources */,
-				6CCBC5CCF294412DE0D762E2 /* [CP] Embed Pods Frameworks */,
-				C594AA57AD6D069294F21A60 /* [CP] Copy Pods Resources */,
+				E34D68AFF47C2E04D8CFB103 /* [CP] Embed Pods Frameworks */,
+				B06A192FD907DAC7B6C05E12 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -261,7 +261,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		45F5E38B78C1BA45BE90B960 /* [CP] Check Pods Manifest.lock */ = {
+		A42AF4D654DD7F1CED2C8905 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -283,7 +283,31 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6CCBC5CCF294412DE0D762E2 /* [CP] Embed Pods Frameworks */ = {
+		B06A192FD907DAC7B6C05E12 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PMN-frontend-ios/Pods-PMN-frontend-ios-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PMN-frontend-ios/Pods-PMN-frontend-ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E34D68AFF47C2E04D8CFB103 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -307,30 +331,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PMN-frontend-ios/Pods-PMN-frontend-ios-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C594AA57AD6D069294F21A60 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-PMN-frontend-ios/Pods-PMN-frontend-ios-resources.sh",
-				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PMN-frontend-ios/Pods-PMN-frontend-ios-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -498,7 +498,7 @@
 		};
 		8E2CE8FD2217814F001C3501 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9890FF4E2F876A79BDFAAE4E /* Pods-PMN-frontend-ios.debug.xcconfig */;
+			baseConfigurationReference = BC055E3F72FBB257D8523219 /* Pods-PMN-frontend-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -517,7 +517,7 @@
 		};
 		8E2CE8FE2217814F001C3501 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8784202CD466EC5D7B670EC8 /* Pods-PMN-frontend-ios.release.xcconfig */;
+			baseConfigurationReference = D72C4B5587C435BCD8D0D53A /* Pods-PMN-frontend-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

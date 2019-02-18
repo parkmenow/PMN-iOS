@@ -1,5 +1,6 @@
 # Uncomment the next line to define a global platform for your project
- platform :ios, '12.0'
+source 'https://github.com/CocoaPods/Specs.git'
+ platform :ios, '10.0'
 
 target 'PMN-frontend-ios' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -7,7 +8,7 @@ target 'PMN-frontend-ios' do
 
   # Pods for PMN-frontend-ios
 pod 'SwiftyJSON'
-pod 'Alamofire', '~> 5.0.0-beta.2'
+pod 'Alamofire', '~> 4.8'
 pod 'SVProgressHUD'
 pod 'GoogleMaps'
 pod 'GooglePlaces'

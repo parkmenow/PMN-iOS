@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    var loginURL    : String = "https://pokeapi.co/api/v2/ability/"
+    var loginURL    : String = "http://localhost:8080/logi"
     var accessToken : String = ""
     
     override func viewDidLoad() {
@@ -45,7 +45,7 @@ class LoginViewController: UIViewController {
     func checkPassword(name : String , password : String) -> Bool {
         //Start SVD Progress
         print("In Check PAssword")
-//        getLoginToken(name: name, password: password)
+        getLoginToken(name: name, password: password)
         //make call to backend with name and password and
         return true
     }
@@ -55,21 +55,45 @@ class LoginViewController: UIViewController {
     
     func getLoginToken(name: String, password: String) {
     
-        Alamofire.request(loginURL, method: .get)
-            .responseJSON { response in
-                if response.result.isSuccess {
-                    
-                    print("Sucess! Get response from backend for login")
-                    let tokenJSON : JSON = JSON(response.result.value!)
-                    print(tokenJSON)
-//                    self.accessToken = tokenJSON.string ?? ""
-                }
-                
-//                if response.response?.statusCode == 200 {
-//                    return true
-//                }
+        let params = "name:\(name), password:\(password)"
         
-        }
+        
+        post(url: self.loginURL, params: params, successHandler: postHandler)
+        
+////        let parameter = ["user":"name"]
+////
+//        Alamofire.request("http://locahost:8080/api/v1/signup", method: .post, parameters: params?)
+////        Alamofire.request(.POST, "http://locahost:8080/api/v1/signup", parameters: params, encoding: .JSON)
+        
+//
+//
+    
+    
     }
     
+}
+
+func postHandler(_ response: String) -> Void {
+    print(response)
+}
+
+func post(url : String, params : String, successHandler: @escaping (_ response: String) -> Void) {
+    let url = NSURL(string: url)
+    let params = String(params);
+    let request = NSMutableURLRequest(url: url! as URL);
+    request.httpMethod = "POST"
+    request.httpBody = params.data(using: String.Encoding.utf8)
+    
+    let task = URLSession.shared.dataTask(with: request as URLRequest) {
+        data, response, error in
+        
+        //in case of error
+        if error != nil {
+            return
+        }
+        
+        let responseString : String = String(data: data!, encoding: String.Encoding.utf8)!
+        postHandler(responseString)
+    }
+    task.resume();
 }

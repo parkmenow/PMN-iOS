@@ -79,8 +79,8 @@ class RegisterViewController: UIViewController {
     func registerUser(newuser : newUser) {
         //Make POST request to endpoint to register
         
-        let parameters : Parameters = Parameters(dictionaryLiteral: ("user", newuser))
-        let url = URL(string: "http://localhost:8080")!
+//        let parameters : Parameters = Parameters(dictionaryLiteral: ("user", newuser))
+//        let url = URL(string: "http://localhost:8080")!
 //
 //        Alamofire.upload(parameters, to: url)
         }
