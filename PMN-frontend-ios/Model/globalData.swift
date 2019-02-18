@@ -15,5 +15,5 @@ class globalData {
     static var registerURL : String = "http://192.168.1.114:8080"+"/api/v1/signup"
     static var dashBoardURL : String = "http://192.168.1.114:8080"+"/api/v1/dashboard/1"
     static var accessToken = ""
-
+    static var listingURL = "http://192.168.1.114:8080"+"/api/v1/mylisting"
 }

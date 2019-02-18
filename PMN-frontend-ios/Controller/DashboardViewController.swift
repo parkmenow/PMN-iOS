@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import SwiftyJSON
+import Alamofire
 
 class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     var vehicles = ["car","cycle","suv","bus"]
@@ -20,6 +21,7 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBAction func listingButtonPressed(_ sender: UIButton) {
         //Navigate to my listings
         
+        getAlamoListing()
         
         
         
@@ -62,6 +64,36 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         MainLabel.text = name
         VehicleTypePicker.delegate = self
         VehicleTypePicker.dataSource = self
+        
+    }
+    
+    func getAlamoListing(){
+        
+        let bearer = "Bearer "+globalData.accessToken
+        print(bearer)
+        
+        let headers: HTTPHeaders = [
+            "Authorization": bearer,
+            "Accept": "application/json"
+        ]
+  
+        Alamofire.request( globalData.listingURL , method: .get, headers: headers)
+            .responseJSON { response in
+                if let data = response.data {
+                    do{
+                        let json = try JSON(data: data)
+                        print(json)
+                        //PARSE JSON
+                        //CALL ListingViewController with parsed data
+                        self.callListings()
+                    } catch{
+                        print("Server sent not data")
+                    }
+                }
+        }
+    }
+    
+    func callListings(){
         
     }
  
