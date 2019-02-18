@@ -13,11 +13,17 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     var vehicles = ["car","cycle","suv","bus"]
     var selected = 1
     
-
+    var userId = 3
+    var name = "Hello User"
     
 
     @IBAction func listingButtonPressed(_ sender: UIButton) {
         //Navigate to my listings
+        
+        
+        
+        
+        
         let vc = ListingsViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -41,6 +47,10 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         self.selected = row
     }
     
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return vehicles[row]
+    }
+    
     @IBAction func ParkMeButtonPressed(_ sender: Any) {
         
         
@@ -49,6 +59,7 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        MainLabel.text = name
         VehicleTypePicker.delegate = self
         VehicleTypePicker.dataSource = self
         

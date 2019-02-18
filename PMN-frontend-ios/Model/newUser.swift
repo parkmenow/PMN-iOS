@@ -8,20 +8,20 @@
 
 import Foundation
 
-struct newUser : Decodable  {
+struct newUser : Codable  {
     let fname : String
     let lname : String
     let uname : String
     let email : String
-    let phone : String
+    let phoneno : String
     let password : String
     
-    init(fname : String,lname : String,uname : String,email : String,phone : String,password : String) {
+    init(fname : String,lname : String,uname : String,email : String,phoneno : String,password : String) {
         self.fname = fname
         self.lname = lname
         self.uname = uname
         self.email = email
-        self.phone = phone
+        self.phoneno = phoneno
         self.password = password
     }
 }

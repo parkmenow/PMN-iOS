@@ -23,7 +23,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     
     
-    
+    var accessToken : String = ""
     
     
     
@@ -41,18 +41,14 @@ class RegisterViewController: UIViewController {
             return
         }
         
-        let user = newUser(fname: fname, lname: lname, uname: uname, email: email, phone: phone, password: password)
+        let user = newUser(fname: fname, lname: lname, uname: uname, email: email, phoneno: phone, password: password)
         
         if !validate_values(user: user) {
             return
         }
         
         registerUser(newuser:  user)
-//
-        let vc = DashboardViewController()
-        navigationController?.pushViewController(vc, animated: true)
-//
-        
+
         
     }
     
@@ -70,7 +66,7 @@ class RegisterViewController: UIViewController {
     //MARK:- Fields Validation
     
     func validate_values(user: newUser) ->Bool {
-        print(user)
+       
         return true
     }
     
@@ -79,12 +75,64 @@ class RegisterViewController: UIViewController {
     func registerUser(newuser : newUser) {
         //Make POST request to endpoint to register
         
-//        let parameters : Parameters = Parameters(dictionaryLiteral: ("user", newuser))
-//        let url = URL(string: "http://localhost:8080")!
-//
-//        Alamofire.upload(parameters, to: url)
+        AlamoRegisterPost(user : newuser)
+        
+        let vc = DashboardViewController()
+        navigationController?.pushViewController(vc, animated: true)
+        
         }
-//        Alamofire.request(url,method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: [:])
+    
+    func AlamoRegisterPost(user : newUser ){
+        do {
+            let jsonData = try JSONEncoder().encode(user)
+            print(user)
+            let params = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments) as? [String: Any]
+            
+            Alamofire.request( globalData.registerURL , method: .post, parameters: params, encoding: JSONEncoding.default)
+                .responseJSON { response in
+                    if let data = response.data {
+                        do{
+                            let json = try JSON(data: data)
+                            self.accessToken = json["token"].string!
+                            print(self.accessToken)
+                            self.callDashboard(with: globalData.accessToken)
+                        } catch{
+                            print("Server sent not data")
+                        }
+                    }
+            }
+        } catch {
+            print("error")
+        }
+    }
+    
+    func callDashboard(with token: String)
+    {
+        print("Token is ")
+        print(token)
+        let bearer = "Bearer "+token
+        print(bearer)
+        
+        let headers: HTTPHeaders = [
+            "Authorization": bearer,
+            "Accept": "application/json"
+        ]
+        print("About to call dashboard")
+        Alamofire.request( globalData.dashBoardURL, method: .get, headers: headers).responseJSON { response in
+            
+            guard let data = response.data else { print("No response from server on dashboard"); return }
+            print(response.result.value!)
+            guard let name = String(data: data, encoding: .utf8) else {print("Didn't get name "); return }
+            print("Got name as "+name)
+            let vc = DashboardViewController(nibName: "DashboardViewController", bundle: nil)
+            vc.name = "Hello " + name
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
+        
+    }
+    
+    
     
     
 
