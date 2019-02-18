@@ -58,7 +58,7 @@ class LoginViewController: UIViewController {
 //        let params = "\"u_name\":\"test1\", \"password\":\"test1\""
         
         print("In post ")
-        AlamoPost()
+        AlamoPost(user: name, password: password)
 //        post(url: self.loginURL, params: params, successHandler: postHandler)
         
         
@@ -92,34 +92,29 @@ class LoginViewController: UIViewController {
 //    task.resume();
 //}
 
-func AlamoPost(){
-    let parameters: [String: Any] = [
-        "IdQuiz" : 102,
-        "IdUser" : "iosclient",
-        "User" : "iosclient",
-        "List": [
-            [
-                "IdQuestion" : 5,
-                "IdProposition": 2,
-                "Time" : 32
-            ],
-            [
-                "IdQuestion" : 4,
-                "IdProposition": 3,
-                "Time" : 9
-            ]
-        ]
-    ]
+func AlamoPost(user username: String , password : String ){
     
-    let parameterAlam : [String: Any] = [
-        "u_name" : "test1",
-        "password" : "test1"
-    ]
+//    let parameterAlam : [String: Any] = [
+//        "u_name" : "test1",
+//        "password" : "test1"
+//    ]
     
-    let url = "http://192.168.10.78:8080/login"
-    
-    Alamofire.request( url , method: .post, parameters: parameterAlam, encoding: JSONEncoding.default)
-        .responseJSON { response in
-            print(response)
+    let olduser = loginUser(name: username, password : password)
+    do {
+        let jsonData = try JSONEncoder().encode(olduser)
+        let json = try JSON(data: jsonData)
+        print("User is \n")
+        print(json)
+    } catch {
+        print("error")
     }
+    
+  
+    
+//    let url = "http://192.168.10.78:8080/login"
+//
+//    Alamofire.request( url , method: .post, parameters: parameterAlam, encoding: JSONEncoding.default)
+//        .responseJSON { response in
+//            print(response)
+//    }
 }

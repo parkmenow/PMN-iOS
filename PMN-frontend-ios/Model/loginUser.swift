@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct loginUser : Decodable  {
-    let name: String
+struct loginUser : Codable  {
+    let u_name: String
     let password : String
     
     init(name: String, password: String) {
-        self.name = name
+        self.u_name = name
         self.password = password
     }
 }
