@@ -12,6 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewPropertyViewController" customModule="PMN_frontend_ios" customModuleProvider="target">
             <connections>
+                <outlet property="descriptionField" destination="BwS-eX-Sxa" id="OXd-ky-i38"/>
+                <outlet property="line1" destination="uYY-Fe-iYC" id="QDW-0K-zzg"/>
+                <outlet property="line2" destination="cxT-Oi-zCp" id="7ou-TU-Oue"/>
+                <outlet property="pincode" destination="BBO-NC-zLK" id="y4w-Kz-V7T"/>
                 <outlet property="propertyName" destination="Jfu-te-SdQ" id="gJ8-LQ-HEl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

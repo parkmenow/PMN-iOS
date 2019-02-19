@@ -15,7 +15,7 @@ enum globalData {
     static var registerURL : String = "https://pmn-api-1-staging-v1.herokuapp.com"+"/signup"
     static var dashBoardURL : String = "https://pmn-api-1-staging-v1.herokuapp.com/dashboard/1/"
     static var accessToken = ""
-    static var listingURL = "https://pmn-api-1-staging-v1.herokuapp.com"+"/api/v1/mylisting"
+    static var listingURL = "https://pmn-api-1-staging-v1.herokuapp.com/dashboard/3/mylistings"
     static let stripePublicKey = "pk_test_Mv6f0boaChFBAmBOiuiwIgLs"
     static let parkMeURL = "https://pmn-api-1-staging-v1.herokuapp.com/dashboard/3/parkmenow"
     static let chargeURL = ""

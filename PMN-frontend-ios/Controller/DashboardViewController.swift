@@ -59,11 +59,7 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     //MARK:- Button presses
     @IBAction func listingButtonPressed(_ sender: UIButton) {
-        
         getAlamoListing()
-        //TODO PARSE data to pass to next view
-        let vc = ListingsViewController()
-        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func ParkMeButtonPressed(_ sender: Any) {
@@ -165,13 +161,9 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             .responseJSON { response in
                 if let data = response.data {
                     do{
-//                        let json = try JSON(data: data)
-//                        print(json)
-                        //PARSE JSON
-                        //CALL ListingViewController with parsed data
-                        
                         let properties = self.parse(json: data)
-                        
+                        print("In dashboard")
+                        print(properties)
                         self.callListings(with: properties)
                     }
                 }
@@ -194,7 +186,9 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
     func callListings(with properties: [property]){
-        
+        let vc = ListingsViewController(nibName: "ListingsViewController", bundle: nil)
+        vc.myProperties = properties
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 // Print out the location to the console
@@ -222,42 +216,4 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
  
     
-}
-
-struct ReversedGeoLocation {
-    let name: String            // eg. Apple Inc.
-    let streetName: String      // eg. Infinite Loop
-    let streetNumber: String    // eg. 1
-    let city: String            // eg. Cupertino
-    let state: String           // eg. CA
-    let zipCode: String         // eg. 95014
-    let country: String         // eg. United States
-    let isoCountryCode: String  // eg. US
-    
-    var formattedAddress: String {
-        return """
-        \(name),
-        \(streetNumber) \(streetName),
-        \(city), \(state) \(zipCode)
-        \(country)
-        """
-    }
-    
-    var cityName : String {
-        return """
-        \(city)
-        """
-    }
-    
-    // Handle optionals as needed
-    init(with placemark: CLPlacemark) {
-        self.name           = placemark.name ?? ""
-        self.streetName     = placemark.thoroughfare ?? ""
-        self.streetNumber   = placemark.subThoroughfare ?? ""
-        self.city           = placemark.locality ?? ""
-        self.state          = placemark.administrativeArea ?? ""
-        self.zipCode        = placemark.postalCode ?? ""
-        self.country        = placemark.country ?? ""
-        self.isoCountryCode = placemark.isoCountryCode ?? ""
-    }
 }
