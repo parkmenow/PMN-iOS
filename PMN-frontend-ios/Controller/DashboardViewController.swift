@@ -24,6 +24,7 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     //MARK:- Map options
     var locationManager = CLLocationManager()
+    var location = CLLocation(latitude: 37.3321, longitude: -122.0318)
     
 
     
@@ -37,6 +38,7 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var endHr: UITextField!
     @IBOutlet weak var startMin: UITextField!
     @IBOutlet weak var endMin: UITextField!
+    @IBOutlet weak var locationButton: UIButton!
     
     //MARK:- PickerView Methods
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -66,9 +68,50 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     @IBAction func ParkMeButtonPressed(_ sender: Any) {
         
+        let vehicleType = vehicles[selected]
+        let lat = location.coordinate.latitude as Double
+        let lon = location.coordinate.longitude as Double
+        let srttime = self.startDate.text!+"T"+self.startHr.text!+"00:00.000Z"
+        let endtime = self.endDate.text!+"T"+self.endHr.text!+"00:00.000Z"
+        
+        var parameters : [String: Any] = [
+            "Type" : vehicleType,
+            "Lat": lat,
+            "Long": lon,
+            "StartTime" : srttime,
+            "EndTime" : endtime
+        ]
+        
+        AlamoPostParkMeNow(with: parameters)
       
         
     }
+    
+    func AlamoPostParkMeNow(with parameters: [String : Any]){
+        let parkMeNowUrl = "/api/v1/dashboard/"+String(self.userId)+"/parkmenow"
+        let bearer = "Bearer "+globalData.accessToken
+        print(bearer)
+        
+        let headers: HTTPHeaders = [
+            "Authorization": bearer,
+            "Accept": "application/json"
+        ]
+        
+        //TODO Add authentication headers later
+        Alamofire.request( parkMeNowUrl , method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+            .responseJSON { response in
+                if let data = response.data {
+                    do{
+                        let json = try JSON(data: data)
+                        print(json)
+                        //Parse json and call resultsViewController
+                    } catch{
+                        print("Server sent not data")
+                    }
+                }
+        }
+    }
+    
     
     
     override func viewDidLoad() {
@@ -76,6 +119,12 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         MainLabel.text = name
         VehicleTypePicker.delegate = self
         VehicleTypePicker.dataSource = self
+        
+        self.startMin.text = "00"
+        self.startMin.allowsEditingTextAttributes = false
+        
+        self.endMin.text = "00"
+        self.endMin.allowsEditingTextAttributes = false
         
   
         
@@ -127,11 +176,68 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
 
 // Print out the location to the console
-func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    if let location = locations.first {
-        print(location.coordinate)
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let locationnow = locations.first {
+            self.location = locationnow
+   
+            getReversedLocation(with: locationnow)
+        }
     }
-}
+    
+    func getReversedLocation(with location: CLLocation){
+        CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
+            
+            guard let placemark = placemarks?.first else {
+                let errorString = error?.localizedDescription ?? "Unexpected Error"
+                print("Unable to reverse geocode the given location. Error: \(errorString)")
+                return
+            }
+            
+            let reversedGeoLocation = ReversedGeoLocation(with: placemark)
+            print(reversedGeoLocation.cityName)
+            self.locationButton.setTitle(reversedGeoLocation.cityName, for: .normal)
+            
+            
+        }
+    }
  
     
+}
+
+struct ReversedGeoLocation {
+    let name: String            // eg. Apple Inc.
+    let streetName: String      // eg. Infinite Loop
+    let streetNumber: String    // eg. 1
+    let city: String            // eg. Cupertino
+    let state: String           // eg. CA
+    let zipCode: String         // eg. 95014
+    let country: String         // eg. United States
+    let isoCountryCode: String  // eg. US
+    
+    var formattedAddress: String {
+        return """
+        \(name),
+        \(streetNumber) \(streetName),
+        \(city), \(state) \(zipCode)
+        \(country)
+        """
+    }
+    
+    var cityName : String {
+        return """
+        \(city)
+        """
+    }
+    
+    // Handle optionals as needed
+    init(with placemark: CLPlacemark) {
+        self.name           = placemark.name ?? ""
+        self.streetName     = placemark.thoroughfare ?? ""
+        self.streetNumber   = placemark.subThoroughfare ?? ""
+        self.city           = placemark.locality ?? ""
+        self.state          = placemark.administrativeArea ?? ""
+        self.zipCode        = placemark.postalCode ?? ""
+        self.country        = placemark.country ?? ""
+        self.isoCountryCode = placemark.isoCountryCode ?? ""
+    }
 }

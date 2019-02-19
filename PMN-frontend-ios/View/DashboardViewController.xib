@@ -17,6 +17,7 @@
                 <outlet property="endDate" destination="K2O-0n-5mO" id="6Tj-G5-Di6"/>
                 <outlet property="endHr" destination="zfw-kI-X1d" id="QCr-hn-LXb"/>
                 <outlet property="endMin" destination="G0g-kb-pYp" id="sIH-9V-Ha7"/>
+                <outlet property="locationButton" destination="ZCO-IM-NF3" id="TVy-5g-yVn"/>
                 <outlet property="startDate" destination="EGs-EH-5Zz" id="fnl-cA-Ekk"/>
                 <outlet property="startHr" destination="yHR-mx-9bR" id="Tf7-a3-4e9"/>
                 <outlet property="startMin" destination="zgo-b8-H5J" id="kqr-r2-N2C"/>

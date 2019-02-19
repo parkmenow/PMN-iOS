@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Stripe
+//import Stripe
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        STPPaymentConfiguration.shared().publishableKey = "pk_test_Mv6f0boaChFBAmBOiuiwIgLs"
+//        STPPaymentConfiguration.shared().publishableKey = "pk_test_Mv6f0boaChFBAmBOiuiwIgLs"
         // do any other necessary launch configuration
         return true
     }

@@ -25,13 +25,15 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         
-        let nameText = name.text ?? ""
-        let passwordText = password.text ?? ""
+//        let nameText = name.text ?? ""
+//        let passwordText = password.text ?? ""
         
-        if !checkPassword(name: nameText, password: passwordText) {
-            print("Invalid passsword")
-            
-        }
+        instantiateDashboard(name: "Test")
+        
+//        if !checkPassword(name: nameText, password: passwordText) {
+//            print("Invalid passsword")
+//
+//        }
         
     }
     
@@ -97,11 +99,13 @@ func AlamoLoginPost(user username: String , password : String ){
             print(response.result.value!)
             guard let name = String(data: data, encoding: .utf8) else {print("Didn't get name "); return }
             print("Got name as "+name)
-            let vc = DashboardViewController(nibName: "DashboardViewController", bundle: nil)
-            vc.name = "Hello " + name
-            self.navigationController?.pushViewController(vc, animated: true)
-          
+            self.instantiateDashboard(name: name)
         }
-        
+    }
+    
+    func instantiateDashboard(name: String){
+        let vc = DashboardViewController(nibName: "DashboardViewController", bundle: nil)
+        vc.name = "Hello " + name
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

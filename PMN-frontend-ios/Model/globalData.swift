@@ -19,3 +19,4 @@ enum globalData {
     static let stripePublicKey = "pk_test_Mv6f0boaChFBAmBOiuiwIgLs"
     static let chargeURL = ""
 }
+
