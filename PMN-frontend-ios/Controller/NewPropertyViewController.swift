@@ -38,8 +38,8 @@ class NewPropertyViewController: UIViewController {
         //MAKE Delete call to delete entry and dismiss the current view
     }
     @IBAction func modifySlotsButtonPressed(_ sender: UIButton) {
-        let vc = SlotViewController()
-        
+        let vc = SlotTableViewController()
+        vc.spots = myProperty.Spots
         navigationController?.pushViewController(vc, animated: true)
     }
     

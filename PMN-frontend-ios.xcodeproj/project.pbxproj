@@ -38,6 +38,8 @@
 		8EB742F3221C6B49004EB212 /* MyPropertyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB742F1221C6B49004EB212 /* MyPropertyTableViewCell.xib */; };
 		8EB742F6221C7FCF004EB212 /* SlotTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB742F4221C7FCF004EB212 /* SlotTableViewController.swift */; };
 		8EB742F7221C7FCF004EB212 /* SlotTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB742F5221C7FCF004EB212 /* SlotTableViewController.xib */; };
+		8EB742FA221C8182004EB212 /* SlotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB742F8221C8182004EB212 /* SlotTableViewCell.swift */; };
+		8EB742FB221C8182004EB212 /* SlotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB742F9221C8182004EB212 /* SlotTableViewCell.xib */; };
 		8ECA4D1D2217C2BD00E2ABE0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA4D1C2217C2BD00E2ABE0 /* LoginViewController.swift */; };
 		8ECA4D1F2217C2DF00E2ABE0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA4D1E2217C2DF00E2ABE0 /* RegisterViewController.swift */; };
 		8EDDBF6C2218529000001F93 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDBF6A2218529000001F93 /* DashboardViewController.swift */; };
@@ -81,6 +83,8 @@
 		8EB742F1221C6B49004EB212 /* MyPropertyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPropertyTableViewCell.xib; sourceTree = "<group>"; };
 		8EB742F4221C7FCF004EB212 /* SlotTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotTableViewController.swift; sourceTree = "<group>"; };
 		8EB742F5221C7FCF004EB212 /* SlotTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlotTableViewController.xib; sourceTree = "<group>"; };
+		8EB742F8221C8182004EB212 /* SlotTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SlotTableViewCell.swift; path = "PMN-frontend-ios/View/SlotTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		8EB742F9221C8182004EB212 /* SlotTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SlotTableViewCell.xib; path = "PMN-frontend-ios/View/SlotTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		8ECA4D1C2217C2BD00E2ABE0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8ECA4D1E2217C2DF00E2ABE0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		8EDDBF6A2218529000001F93 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 				8EDDBF6B2218529000001F93 /* DashboardViewController.xib */,
 				8E9B866C22194756007CCAAF /* ListingsViewController.xib */,
 				8E9B8670221949B1007CCAAF /* NewPropertyViewController.xib */,
+				8EB742F5221C7FCF004EB212 /* SlotTableViewController.xib */,
 				8E9B867422194C4B007CCAAF /* SlotViewController.xib */,
 				8E9B867C22197AA5007CCAAF /* ShowParkingViewController.xib */,
 				8E9B868022197C8F007CCAAF /* ConfirmBookingViewController.xib */,
@@ -201,7 +206,8 @@
 				8E9B867F22197C8F007CCAAF /* ConfirmBookingViewController.swift */,
 				8E9B8683221A226A007CCAAF /* PaymentViewController.swift */,
 				8EB742F4221C7FCF004EB212 /* SlotTableViewController.swift */,
-				8EB742F5221C7FCF004EB212 /* SlotTableViewController.xib */,
+				8EB742F8221C8182004EB212 /* SlotTableViewCell.swift */,
+				8EB742F9221C8182004EB212 /* SlotTableViewCell.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -282,6 +288,7 @@
 				8E2CE8F82217814F001C3501 /* LaunchScreen.storyboard in Resources */,
 				8EB742F3221C6B49004EB212 /* MyPropertyTableViewCell.xib in Resources */,
 				8E9B867622194C4B007CCAAF /* SlotViewController.xib in Resources */,
+				8EB742FB221C8182004EB212 /* SlotTableViewCell.xib in Resources */,
 				8E9B867A22195620007CCAAF /* MapViewController.xib in Resources */,
 				8EB742F7221C7FCF004EB212 /* SlotTableViewController.xib in Resources */,
 				8EB742EF221C03AB004EB212 /* PropertyTableViewCell.xib in Resources */,
@@ -376,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EDDBF712218E13900001F93 /* newUser.swift in Sources */,
+				8EB742FA221C8182004EB212 /* SlotTableViewCell.swift in Sources */,
 				8EB742E9221BF2CB004EB212 /* Slot.swift in Sources */,
 				8EB742EE221C03AB004EB212 /* PropertyTableViewCell.swift in Sources */,
 				8EDDBF6F2218DCF900001F93 /* loginUser.swift in Sources */,
