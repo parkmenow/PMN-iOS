@@ -9,19 +9,25 @@
 import Foundation
 
 struct property : Codable  {
-    let line1 : String
-    let line2 : String
-    let pincode : String
-    let lat : Float64
-    let long : Float64
-    let owner_id : String
+    let ID : Int
+    let Line1 : String
+    let Line2 : String
+    let Pincode : String
+    let Lat : Double
+    let Long : Double
+    let Spots : [Spot]
+    let owner_id : Int
     
-    init(line1 : String,line2 : String,pincode : String,lat : Float64,long : Float64,owner_id : String) {
-        self.line1 = line1
-        self.line2 = line2
-        self.pincode = pincode
-        self.lat = lat
-        self.long = long
+    init( ID : Int,Line1 : String,Line2 : String,Pincode : String,Lat : Double,Long : Double, Spots : [Spot],owner_id : Int)
+    {
+        self.ID = ID
+        self.Line1 = Line1
+        self.Line2 = Line2
+        self.Pincode = Pincode
+        self.Lat = Lat
+        self.Long = Long
+        self.Spots = Spots
         self.owner_id = owner_id
     }
+  
 }

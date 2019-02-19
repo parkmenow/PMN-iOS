@@ -8,23 +8,36 @@
 
 import UIKit
 
-class ShowParkingViewController: UIViewController {
+class ShowParkingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var properties : [property] = []
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return properties.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PropertyTableViewCell", for: indexPath) as! PropertyTableViewCell
+        
+        cell.descriptionLabel.text = properties[indexPath.row].Spots[0].Description
+        cell.priceLabel.text = String(properties[indexPath.row].Spots[0].Slots[0].Price)
+        cell.propertyLabel.text = String( properties[indexPath.row].ID )
+        //TODO Spot it change later
+        cell.slotID.text = String(properties[indexPath.row].Spots[0].ID)
+        
+        return cell
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        print("int intiinisfnsdjnf")
+        print(properties)
+//        print("kjdbnfvkwdvn")
 
         // Do any additional setup after loading the view.
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

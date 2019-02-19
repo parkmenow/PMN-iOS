@@ -30,6 +30,10 @@
 		8E9B8686221A226A007CCAAF /* PaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E9B8684221A226A007CCAAF /* PaymentViewController.xib */; };
 		8EB742E4221ACE87004EB212 /* globalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB742E3221ACE87004EB212 /* globalData.swift */; };
 		8EB742E6221ADCD0004EB212 /* property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB742E5221ADCD0004EB212 /* property.swift */; };
+		8EB742E9221BF2CB004EB212 /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB742E8221BF2CB004EB212 /* Slot.swift */; };
+		8EB742EB221BF3BE004EB212 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB742EA221BF3BE004EB212 /* Spot.swift */; };
+		8EB742EE221C03AB004EB212 /* PropertyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB742EC221C03AB004EB212 /* PropertyTableViewCell.swift */; };
+		8EB742EF221C03AB004EB212 /* PropertyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB742ED221C03AB004EB212 /* PropertyTableViewCell.xib */; };
 		8ECA4D1D2217C2BD00E2ABE0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA4D1C2217C2BD00E2ABE0 /* LoginViewController.swift */; };
 		8ECA4D1F2217C2DF00E2ABE0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA4D1E2217C2DF00E2ABE0 /* RegisterViewController.swift */; };
 		8EDDBF6C2218529000001F93 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDBF6A2218529000001F93 /* DashboardViewController.swift */; };
@@ -65,6 +69,10 @@
 		8EB742E3221ACE87004EB212 /* globalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globalData.swift; sourceTree = "<group>"; };
 		8EB742E5221ADCD0004EB212 /* property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = property.swift; sourceTree = "<group>"; };
 		8EB742E7221BBD23004EB212 /* Stripe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stripe-Bridging-Header.h"; sourceTree = "<group>"; };
+		8EB742E8221BF2CB004EB212 /* Slot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
+		8EB742EA221BF3BE004EB212 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
+		8EB742EC221C03AB004EB212 /* PropertyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTableViewCell.swift; sourceTree = "<group>"; };
+		8EB742ED221C03AB004EB212 /* PropertyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PropertyTableViewCell.xib; sourceTree = "<group>"; };
 		8ECA4D1C2217C2BD00E2ABE0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8ECA4D1E2217C2DF00E2ABE0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		8EDDBF6A2218529000001F93 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +152,8 @@
 				8E5C937C221914BA009BEEC6 /* PropertyLocations.swift */,
 				8EB742E3221ACE87004EB212 /* globalData.swift */,
 				8EB742E5221ADCD0004EB212 /* property.swift */,
+				8EB742EA221BF3BE004EB212 /* Spot.swift */,
+				8EB742E8221BF2CB004EB212 /* Slot.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -160,6 +170,8 @@
 				8E9B868022197C8F007CCAAF /* ConfirmBookingViewController.xib */,
 				8E9B8684221A226A007CCAAF /* PaymentViewController.xib */,
 				8E9B867822195620007CCAAF /* MapViewController.xib */,
+				8EB742EC221C03AB004EB212 /* PropertyTableViewCell.swift */,
+				8EB742ED221C03AB004EB212 /* PropertyTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -258,6 +270,7 @@
 				8E2CE8F82217814F001C3501 /* LaunchScreen.storyboard in Resources */,
 				8E9B867622194C4B007CCAAF /* SlotViewController.xib in Resources */,
 				8E9B867A22195620007CCAAF /* MapViewController.xib in Resources */,
+				8EB742EF221C03AB004EB212 /* PropertyTableViewCell.xib in Resources */,
 				8E2CE8F52217814F001C3501 /* Assets.xcassets in Resources */,
 				8E2CE8F32217814E001C3501 /* Main.storyboard in Resources */,
 				8EDDBF6D2218529000001F93 /* DashboardViewController.xib in Resources */,
@@ -351,6 +364,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EDDBF712218E13900001F93 /* newUser.swift in Sources */,
+				8EB742E9221BF2CB004EB212 /* Slot.swift in Sources */,
+				8EB742EE221C03AB004EB212 /* PropertyTableViewCell.swift in Sources */,
 				8EDDBF6F2218DCF900001F93 /* loginUser.swift in Sources */,
 				8E9B866D22194756007CCAAF /* ListingsViewController.swift in Sources */,
 				8ECA4D1D2217C2BD00E2ABE0 /* LoginViewController.swift in Sources */,
@@ -359,6 +374,7 @@
 				8EB742E4221ACE87004EB212 /* globalData.swift in Sources */,
 				8E2CE8F02217814E001C3501 /* ViewController.swift in Sources */,
 				8E9B8685221A226A007CCAAF /* PaymentViewController.swift in Sources */,
+				8EB742EB221BF3BE004EB212 /* Spot.swift in Sources */,
 				8E9B867D22197AA5007CCAAF /* ShowParkingViewController.swift in Sources */,
 				8E9B867922195620007CCAAF /* MapViewController.swift in Sources */,
 				8E9B868122197C8F007CCAAF /* ConfirmBookingViewController.swift in Sources */,

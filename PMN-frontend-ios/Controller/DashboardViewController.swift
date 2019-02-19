@@ -68,21 +68,24 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     @IBAction func ParkMeButtonPressed(_ sender: Any) {
         
-        let vehicleType = vehicles[selected]
-        let lat = location.coordinate.latitude as Double
-        let lon = location.coordinate.longitude as Double
-        let srttime = self.startDate.text!+"T"+self.startHr.text!+"00:00.000Z"
-        let endtime = self.endDate.text!+"T"+self.endHr.text!+"00:00.000Z"
+//        let vehicleType = vehicles[selected]
+//        let lat = location.coordinate.latitude as Double
+//        let lon = location.coordinate.longitude as Double
+//        let srttime = self.startDate.text!+"T"+self.startHr.text!+"00:00.000Z"
+//        let endtime = self.endDate.text!+"T"+self.endHr.text!+"00:00.000Z"
+//
+//        let parameters : [String: Any] = [
+//            "Type" : vehicleType,
+//            "Lat": lat,
+//            "Long": lon,
+//            "StartTime" : srttime,
+//            "EndTime" : endtime
+//        ]
         
-        var parameters : [String: Any] = [
-            "Type" : vehicleType,
-            "Lat": lat,
-            "Long": lon,
-            "StartTime" : srttime,
-            "EndTime" : endtime
-        ]
-        
-        AlamoPostParkMeNow(with: parameters)
+        let prop = getProperty()
+        instantiateParkingview(with:prop)
+        //TODO uncomment to make dynamic calls
+        //AlamoPostParkMeNow(with: parameters)
       
         
     }
@@ -104,12 +107,24 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                     do{
                         let json = try JSON(data: data)
                         print(json)
-                        //Parse json and call resultsViewController
+                        //TODO set properties from json later
+                        let properties = getProperty()
+                        
+                        self.instantiateParkingview(with: properties)
+                        
+                        
                     } catch{
                         print("Server sent not data")
                     }
                 }
         }
+    }
+    
+    func instantiateParkingview(with properties: [property]){
+        let vc = ShowParkingViewController(nibName: "ShowParkingViewController", bundle: nil)
+        vc.properties = properties
+//        print(vc.properties)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -240,4 +255,15 @@ struct ReversedGeoLocation {
         self.country        = placemark.country ?? ""
         self.isoCountryCode = placemark.isoCountryCode ?? ""
     }
+}
+
+
+//MARK:- Raw data
+func getProperty() ->[property] {
+    let slo = slot(ID: 1, StartTime: "2006-01-02T14:00:00Z", EndTime: "2006-01-02T15:00:00Z", Price: 100, SpotID: 1, BookingID: 0)
+    let spo = Spot(ID: 1, vType: 1,Description:  "Very beautiful can park a cycle", ImageURL : "https://www.archdaily.com/878629/simple-house-moon-hoon/59a4c624b22e389d3e0002a3-simple-house-moon-hoon-image", Slots: [slo], PropertyID: 1)
+    let prop = property(ID: 1, Line1: "1-5-6, 1108", Line2: "Higashi-ojima", Pincode: "132-0034", Lat: 35.68981, Long: 139.84755, Spots: [spo], owner_id: 3)
+    
+    let props = [prop]
+    return props
 }
