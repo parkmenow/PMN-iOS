@@ -17,4 +17,5 @@ enum globalData {
     static var accessToken = ""
     static var listingURL = "http://192.168.1.114:8080"+"/api/v1/mylisting"
     static let stripePublicKey = "pk_test_Mv6f0boaChFBAmBOiuiwIgLs"
+    static let chargeURL = ""
 }

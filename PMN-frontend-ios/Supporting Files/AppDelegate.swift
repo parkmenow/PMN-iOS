@@ -15,11 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)
-        -> Bool {
-            Stripe.setDefaultPublishableKey(globalData.stripePublicKey)
-            return true
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        STPPaymentConfiguration.shared().publishableKey = "pk_test_Mv6f0boaChFBAmBOiuiwIgLs"
+        // do any other necessary launch configuration
+        return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

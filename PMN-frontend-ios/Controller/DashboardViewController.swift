@@ -9,34 +9,36 @@
 import UIKit
 import SwiftyJSON
 import Alamofire
+import MapKit
+import CoreLocation
 
-class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate {
+    
+    
+    //MARK- Local Variables
+    
     var vehicles = ["car","cycle","suv","bus"]
     var selected = 1
-    
     var userId = 3
     var name = "Hello User"
     
-
-    @IBAction func listingButtonPressed(_ sender: UIButton) {
-        //Navigate to my listings
-        
-        getAlamoListing()
-        
-        
-        
-        
-        let vc = ListingsViewController()
-        navigationController?.pushViewController(vc, animated: true)
-    }
+    //MARK:- Map options
+    var locationManager = CLLocationManager()
     
-    //MARK:- PickerView Methods
+
+    
+    //MARK:- IBOutlets
     
     @IBOutlet weak var MainLabel: UILabel!
     @IBOutlet weak var VehicleTypePicker: UIPickerView!
-    @IBOutlet weak var StartTimePicker: UIDatePicker!
-    @IBOutlet weak var EndTimePicker: UIDatePicker!
+    @IBOutlet weak var startDate: UITextField!
+    @IBOutlet weak var endDate: UITextField!
+    @IBOutlet weak var startHr: UITextField!
+    @IBOutlet weak var endHr: UITextField!
+    @IBOutlet weak var startMin: UITextField!
+    @IBOutlet weak var endMin: UITextField!
     
+    //MARK:- PickerView Methods
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -53,14 +55,18 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         return vehicles[row]
     }
     
+    //MARK:- Button presses
+    @IBAction func listingButtonPressed(_ sender: UIButton) {
+        
+        getAlamoListing()
+        //TODO PARSE data to pass to next view
+        let vc = ListingsViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @IBAction func ParkMeButtonPressed(_ sender: Any) {
         
-        let userId = "3"
-        let startTime = ""
-        let endTime = ""
-        
-        let parameters : [String:Any] = ["uname"]
-        
+      
         
     }
     
@@ -71,7 +77,24 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         VehicleTypePicker.delegate = self
         VehicleTypePicker.dataSource = self
         
+  
+        
+        //Location fetch
+        if CLLocationManager.locationServicesEnabled() == true {
+            
+            if CLLocationManager.authorizationStatus() == .restricted || CLLocationManager.authorizationStatus() == .denied ||  CLLocationManager.authorizationStatus() == .notDetermined {
+                locationManager.requestWhenInUseAuthorization()
+            }
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.delegate = self
+            locationManager.startUpdatingLocation()
+        } else {
+            print("PLease turn on location services or GPS")
+        }
     }
+
+        
+    
     
     func getAlamoListing(){
         
@@ -102,6 +125,13 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     func callListings(){
         
     }
+
+// Print out the location to the console
+func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    if let location = locations.first {
+        print(location.coordinate)
+    }
+}
  
     
 }

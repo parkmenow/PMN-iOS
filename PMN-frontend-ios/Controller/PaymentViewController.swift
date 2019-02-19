@@ -7,7 +7,9 @@
 //
 
 import UIKit
-import Stripe
+import Alamofire
+import SwiftyJSON
+
 
 class PaymentViewController: UIViewController {
 
@@ -34,88 +36,41 @@ class PaymentViewController: UIViewController {
         let monthstring: String = expMonth.text ?? "12"
         let month: UInt  =  UInt(monthstring) ?? 0
         let year = UInt(expYear.text ?? "2019") ?? 0
-        let CVV = CVC.text ?? ""
+        let CVV = CVC.text ?? "000"
         let amount = AmountToPay.text ?? "1000"
         
-        // Initiate the card
-        var stripCard = STPCard()
         
-        // Send the card info to Strip to get the token
-        stripCard.number = cardNo
-        stripCard.cvc = CVV
-        stripCard.expMonth = month
-        stripCard.expYear = year
-        stripCard.name = name
+        let parameters : [String: Any] = [
+            "name":name,
+            "card_no": cardNo,
+            "month": month,
+            "year": year,
+            "cvv": CVV,
+            "amount": amount
+            ]
         
         
-        do{
-            var underlyingError: NSError?
-            try stripCard.validateReturningError(underlyingError)
-                if underlyingError != nil {
-                self.spinner.stopAnimating()
-                self.handleError(underlyingError!)
-                return
-                }
-  
-            STPAPIClient.sharedClient().createTokenWithCard(stripCard, completion: { (token, error) -> Void in
-                
-                if error != nil {
-                    self.handleError(error!)
-                    return
-                }
-                //Send Token here
-//                self.postStripeToken(token!)
-            })
+        postChargeBackend(params: parameters)
         
-        } catch
-            {
-                print("Error with validation")
-                
-        }
-    }
-    //Send Token to Backend for processing
-    func postStripeToken(token: STPToken, chargeAmount amount: int , email mail: String) {
         
-        let URL = "http://localhost/donate/payment.php"
-        let params = ["stripeToken": token.tokenId,
-                      "amount": amount,
-                      "currency": "jpy",
-                      "description": mail ]
+       
         
-        let manager = AFHTTPRequestOperationManager()
-        manager.POST(URL, parameters: params, success: { (operation, responseObject) -> Void in
-            
-            if let response = responseObject as? [String: String] {
-                UIAlertView(title: response["status"],
-                            message: response["message"],
-                            delegate: nil,
-                            cancelButtonTitle: "OK").show()
-            }
-            
-        }) { (operation, error) -> Void in
-            self.handleError(error!)
-        }
-    }
-    
-    func handleError(error: NSError) {
-        UIAlertView(title: "Please Try Again",
-                    message: error.localizedDescription,
-                    delegate: nil,
-                    cancelButtonTitle: "OK").show()
         
     }
     
-
-}
-
-// Get from string to uint
-extension String {
-    func toUInt() -> UInt? {
-        let scanner = Scanner(string: self)
-        var u: UInt64 = 0
-        if scanner.scanUnsignedLongLong(&u)  && scanner.isAtEnd {
-            return UInt(u)
+    
+    
+    func postChargeBackend(params parameters: [String : Any]) {
+        
+        Alamofire.request( globalData.chargeURL , method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .responseJSON { response in
+                if let data = response.data {
+                        print(response.result.value!)
+                        print(data)
+                }
+             
         }
-        return nil
     }
 }
+
+
