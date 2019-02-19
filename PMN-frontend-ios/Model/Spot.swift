@@ -24,4 +24,12 @@ struct Spot: Codable {
         self.Slots = Slots
         self.PropertyID = PropertyID
     }
+    init(){
+        self.ID = 0
+        self.vType = 0
+        self.ImageURL = ""
+        self.Description = ""
+        self.Slots = []
+        self.PropertyID = 0
+    }
 }

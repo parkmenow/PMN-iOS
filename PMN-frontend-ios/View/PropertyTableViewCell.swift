@@ -13,7 +13,8 @@ class PropertyTableViewCell: UITableViewCell {
     
   
     @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UITextView!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     @IBOutlet weak var propertyLabel: UILabel!
     @IBOutlet weak var slotID: UILabel!    
     @IBOutlet weak var spotImage: UIImageView!
