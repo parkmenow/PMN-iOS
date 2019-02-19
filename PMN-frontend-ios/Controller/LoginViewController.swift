@@ -85,16 +85,7 @@ func AlamoLoginPost(user username: String , password : String ){
             "Authorization": bearer,
             "Accept": "application/json"
         ]
-        print(headers)
-        
-        print("\n")
-    
-        globalData.dashBoardURL = "https://pmn-api-1-staging-v1.herokuapp.com/dashboard/2"
-           print("\n")
-            print(globalData.dashBoardURL)
-           print("\n")
-        
-        
+ 
         Alamofire.request( globalData.dashBoardURL , method: .get, headers: headers ).responseJSON { response in
 //            print(bearer)
             guard let data = response.data else { print("No response from server on dashboard"); return }
@@ -112,3 +103,5 @@ func AlamoLoginPost(user username: String , password : String ){
     }
     
 }
+
+

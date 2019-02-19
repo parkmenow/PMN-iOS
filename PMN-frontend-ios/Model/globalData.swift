@@ -13,10 +13,11 @@ enum globalData {
     static var ip : String = "https://pmn-api-1-staging-v1.herokuapp.com"
     static var loginURL : String = "https://pmn-api-1-staging-v1.herokuapp.com"+"/login"
     static var registerURL : String = "https://pmn-api-1-staging-v1.herokuapp.com"+"/signup"
-    static var dashBoardURL : String = "https://pmn-api-1-staging-v1.herokuapp.com/dashboard/1"
+    static var dashBoardURL : String = "https://pmn-api-1-staging-v1.herokuapp.com/dashboard/1/"
     static var accessToken = ""
-    static var listingURL = "http://192.168.1.114:8080"+"/api/v1/mylisting"
+    static var listingURL = "https://pmn-api-1-staging-v1.herokuapp.com"+"/api/v1/mylisting"
     static let stripePublicKey = "pk_test_Mv6f0boaChFBAmBOiuiwIgLs"
+    static let parkMeURL = "https://pmn-api-1-staging-v1.herokuapp.com/dashboard/3/parkmenow"
     static let chargeURL = ""
 }
 

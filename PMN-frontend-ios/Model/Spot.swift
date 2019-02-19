@@ -10,15 +10,15 @@ import Foundation
 
 struct Spot: Codable {
     var ID: Int
-    var vType: Int
+//    var Type: Int
     var ImageURL: String
     var Description: String
     var Slots : [slot]
     var PropertyID : Int
     
-    init(ID: Int , vType: Int , Description: String , ImageURL: String , Slots : [slot],PropertyID : Int){
+    init(ID: Int , /*vType: Int ,*/ Description: String , ImageURL: String , Slots : [slot],PropertyID : Int){
         self.ID = ID
-        self.vType = vType
+//        self.vType = vType
         self.ImageURL = ImageURL
         self.Description = Description
         self.Slots = Slots
@@ -26,7 +26,7 @@ struct Spot: Codable {
     }
     init(){
         self.ID = 0
-        self.vType = 0
+//        self.vType = 0
         self.ImageURL = ""
         self.Description = ""
         self.Slots = []

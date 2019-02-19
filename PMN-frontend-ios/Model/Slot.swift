@@ -15,14 +15,14 @@ struct slot : Codable {
     var EndTime: String
     var Price: Int
     var SpotID: Int
-    var BookingID: Int
+    var Available: Bool
     
-    init(ID : Int,StartTime: String,EndTime: String,Price: Int,SpotID: Int,BookingID: Int){
+    init(ID : Int,StartTime: String,EndTime: String,Price: Int,SpotID: Int,Available: Bool){
         self.ID = ID
         self.StartTime = StartTime
         self.EndTime = EndTime
         self.Price = Price
         self.SpotID = SpotID
-        self.BookingID = BookingID
+        self.Available = Available
     }
 }

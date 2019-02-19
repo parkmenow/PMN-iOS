@@ -13,21 +13,26 @@ struct property : Codable  {
     let Line1 : String
     let Line2 : String
     let Pincode : String
-    let Lat : Double
-    let Long : Double
+    let lat : Double
+    let long : Double
     let Spots : [Spot]
-    let owner_id : Int
+    let OwnerID : Int
     
-    init( ID : Int,Line1 : String,Line2 : String,Pincode : String,Lat : Double,Long : Double, Spots : [Spot],owner_id : Int)
+    init( ID : Int,Line1 : String,Line2 : String,Pincode : String,lat : Double,long : Double, Spots : [Spot],OwnerID : Int)
     {
         self.ID = ID
         self.Line1 = Line1
         self.Line2 = Line2
         self.Pincode = Pincode
-        self.Lat = Lat
-        self.Long = Long
+        self.lat = lat
+        self.long = long
         self.Spots = Spots
-        self.owner_id = owner_id
+        self.OwnerID = OwnerID
     }
   
+}
+
+
+struct PropertiesArr : Codable {
+    var results : [property]
 }

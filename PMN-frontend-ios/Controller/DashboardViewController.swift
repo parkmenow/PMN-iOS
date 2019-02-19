@@ -17,7 +17,7 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     //MARK- Local Variables
     
-    var vehicles = ["car","cycle","suv","bus"]
+    var vehicles = ["cycle","car"]
     var selected = 1
     var userId = 3
     var name = "Hello User"
@@ -68,30 +68,30 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     @IBAction func ParkMeButtonPressed(_ sender: Any) {
         
-//        let vehicleType = vehicles[selected]
-//        let lat = location.coordinate.latitude as Double
-//        let lon = location.coordinate.longitude as Double
+        let vehicleType = selected+1 //1 index
+        let lat = location.coordinate.latitude as Double
+        let lon = location.coordinate.longitude as Double
+        let testsrt = "2006-01-02T14:00:00.000Z"
+        let testtime = "2006-01-02T15:00:00.000Z"
 //        let srttime = self.startDate.text!+"T"+self.startHr.text!+"00:00.000Z"
 //        let endtime = self.endDate.text!+"T"+self.endHr.text!+"00:00.000Z"
-//
-//        let parameters : [String: Any] = [
-//            "Type" : vehicleType,
-//            "Lat": lat,
-//            "Long": lon,
-//            "StartTime" : srttime,
-//            "EndTime" : endtime
-//        ]
-        
-        let prop = getProperty()
-        instantiateParkingview(with:prop)
+
+        let parameters : [String: Any] = [
+            "Type" : vehicleType,
+            "Lat": lat,
+            "Long": lon,
+            "StartTime" : testsrt,
+            "EndTime" : testtime
+        ]
+//        let prop = getProperty()
+//        instantiateParkingview(with:prop)
         //TODO uncomment to make dynamic calls
-        //AlamoPostParkMeNow(with: parameters)
+        AlamoPostParkMeNow(with: parameters)
       
         
     }
     
     func AlamoPostParkMeNow(with parameters: [String : Any]){
-        let parkMeNowUrl = "/api/v1/dashboard/"+String(self.userId)+"/parkmenow"
         let bearer = "Bearer "+globalData.accessToken
         print(bearer)
         
@@ -101,20 +101,13 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         ]
         
         //TODO Add authentication headers later
-        Alamofire.request( parkMeNowUrl , method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        Alamofire.request( globalData.parkMeURL , method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
             .responseJSON { response in
                 if let data = response.data {
                     do{
-                        let json = try JSON(data: data)
-                        print(json)
-                        //TODO set properties from json later
-                        let properties = getProperty()
+                        print("Parsing result")
+                       self.parse(json: data)
                         
-                        self.instantiateParkingview(with: properties)
-                        
-                        
-                    } catch{
-                        print("Server sent not data")
                     }
                 }
         }
@@ -174,18 +167,28 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             .responseJSON { response in
                 if let data = response.data {
                     do{
-                        let json = try JSON(data: data)
-                        print(json)
+//                        let json = try JSON(data: data)
+//                        print(json)
                         //PARSE JSON
                         //CALL ListingViewController with parsed data
                         
+                        self.parse(json: data)
                         
-                        
-                        self.callListings()
-                    } catch{
-                        print("Server sent not data")
+//                        self.callListings()
                     }
                 }
+        }
+    }
+    
+    func parse(json: Data) {
+        
+        let decoder = JSONDecoder()
+        do {
+            let properties = try decoder.decode([property].self, from: json)
+            print(properties)
+        } catch {
+            print("error trying to convert data to JSON")
+            print(error)
         }
     }
     
@@ -214,8 +217,6 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             let reversedGeoLocation = ReversedGeoLocation(with: placemark)
             print(reversedGeoLocation.cityName)
             self.locationButton.setTitle(reversedGeoLocation.cityName, for: .normal)
-            
-            
         }
     }
  
@@ -258,15 +259,4 @@ struct ReversedGeoLocation {
         self.country        = placemark.country ?? ""
         self.isoCountryCode = placemark.isoCountryCode ?? ""
     }
-}
-
-
-//MARK:- Raw data
-func getProperty() ->[property] {
-    let slo = slot(ID: 1, StartTime: "2006-01-02T14:00:00Z", EndTime: "2006-01-02T15:00:00Z", Price: 100, SpotID: 1, BookingID: 0)
-    let spo = Spot(ID: 1, vType: 1,Description:  "Very beautiful can park a cycle", ImageURL : "https://www.archdaily.com/878629/simple-house-moon-hoon/59a4c624b22e389d3e0002a3-simple-house-moon-hoon-image", Slots: [slo], PropertyID: 1)
-    let prop = property(ID: 1, Line1: "1-5-6, 1108", Line2: "Higashi-ojima", Pincode: "132-0034", Lat: 35.68981, Long: 139.84755, Spots: [spo], owner_id: 3)
-    
-    let props = [prop]
-    return props
 }
