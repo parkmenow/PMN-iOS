@@ -26,7 +26,7 @@ class PaymentViewController: UIViewController {
     @IBOutlet weak var CVC: UITextField!
     @IBOutlet weak var AmountToPay: UILabel!
     
-    
+    var properti = property()
     
 
     
@@ -38,8 +38,6 @@ class PaymentViewController: UIViewController {
         let year = UInt(expYear.text ?? "2019") ?? 0
         let CVV = CVC.text ?? "000"
         let amount = AmountToPay.text ?? "1000"
-        
-        
         let parameters : [String: Any] = [
             "name":name,
             "card_no": cardNo,
@@ -48,14 +46,7 @@ class PaymentViewController: UIViewController {
             "cvv": CVV,
             "amount": amount
             ]
-        
-        
         postChargeBackend(params: parameters)
-        
-        
-       
-        
-        
     }
     
     

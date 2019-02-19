@@ -16,31 +16,33 @@ class ConfirmBookingViewController: UIViewController {
         // Do any additional setup after loading the view.
   
         
-        self.propertyID.text = String(selectedSpot.ID)
-        self.startID.text = selectedSpot.Slots[0].StartTime.sliceByString(from: "T", to: "Z")
-        self.endID.text = selectedSpot.Slots[0].EndTime.sliceByString(from: "T", to: "Z")
-        self.price.text = String(selectedSpot.Slots[0].Price)+"¥"
-        self.total.text = String(selectedSpot.Slots[0].Price)+"¥"
+        self.propertID.text = String(selectedProperty.ID)
+        self.slotID.text = String(selectedProperty.Spots[0].ID)
+        self.startID.text = selectedProperty.Spots[0].Slots[0].StartTime.sliceByString(from: "T", to: "Z")
+        self.endID.text = selectedProperty.Spots[0].Slots[0].EndTime.sliceByString(from: "T", to: "Z")
+        self.price.text = String(selectedProperty.Spots[0].Slots[0].Price)+"¥"
+        self.total.text = String(selectedProperty.Spots[0].Slots[0].Price)+"¥"
     }
-    var selectedSpot = Spot()
+    var selectedProperty = property()
    
-    @IBOutlet weak var propertyName: UILabel!
-    @IBOutlet weak var propertyID: UILabel!
+
+    @IBOutlet weak var slotID: UILabel!
+    @IBOutlet weak var propertID: UILabel!
     @IBOutlet weak var startID: UILabel!
     @IBOutlet weak var endID: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var total: UILabel!
     @IBAction func confirmBookingPressed(_ sender: Any) {
         
-        instantiatePaymentController()
+        instantiatePaymentController(with: selectedProperty)
         
     }
     
-    func instantiatePaymentController(){
+    func instantiatePaymentController(with properti: property){
         
         
         let vc = PaymentViewController(nibName: "PaymentViewController", bundle: nil)
-    
+        vc.properti = properti
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

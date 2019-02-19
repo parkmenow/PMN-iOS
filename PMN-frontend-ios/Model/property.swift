@@ -29,6 +29,17 @@ struct property : Codable  {
         self.Spots = Spots
         self.OwnerID = OwnerID
     }
+    
+    init(){
+        self.ID = 0
+        self.Line1 = ""
+        self.Line2 = ""
+        self.Pincode = ""
+        self.lat = 0
+        self.long = 0
+        self.Spots = []
+        self.OwnerID = 0
+    }
   
 }
 

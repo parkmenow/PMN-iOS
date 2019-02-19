@@ -105,9 +105,8 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             .responseJSON { response in
                 if let data = response.data {
                     do{
-                        print("Parsing result")
-                       self.parse(json: data)
-                        
+                       let properties = self.parse(json: data)
+                        self.instantiateParkingview(with: properties)
                     }
                 }
         }
@@ -116,7 +115,6 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     func instantiateParkingview(with properties: [property]){
         let vc = ShowParkingViewController(nibName: "ShowParkingViewController", bundle: nil)
         vc.properties = properties
-//        print(vc.properties)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -172,27 +170,30 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                         //PARSE JSON
                         //CALL ListingViewController with parsed data
                         
-                        self.parse(json: data)
+                        let properties = self.parse(json: data)
                         
-//                        self.callListings()
+                        self.callListings(with: properties)
                     }
                 }
         }
     }
     
-    func parse(json: Data) {
+    func parse(json: Data) ->[property] {
         
         let decoder = JSONDecoder()
         do {
             let properties = try decoder.decode([property].self, from: json)
-            print(properties)
+            return properties
+            
         } catch {
             print("error trying to convert data to JSON")
             print(error)
+            return []
         }
+        
     }
     
-    func callListings(){
+    func callListings(with properties: [property]){
         
     }
 
