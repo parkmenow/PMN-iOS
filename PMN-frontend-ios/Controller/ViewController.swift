@@ -13,7 +13,7 @@ import SwiftyJSON
 class ViewController: UIViewController {
 
     @IBOutlet weak var serverGet: UILabel!
-    let url = "https://pmn-api-1.herokuapp.com/"
+    let url = "https://pmn-api-1-staging-v1.herokuapp.com/"
     
     
     override func viewDidLoad() {

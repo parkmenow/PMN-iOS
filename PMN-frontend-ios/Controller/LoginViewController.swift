@@ -25,15 +25,15 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         
-//        let nameText = name.text ?? ""
-//        let passwordText = password.text ?? ""
+        let nameText = name.text ?? ""
+        let passwordText = password.text ?? ""
         
-        instantiateDashboard(name: "Test")
+//        instantiateDashboard(name: "Test")
         
-//        if !checkPassword(name: nameText, password: passwordText) {
-//            print("Invalid passsword")
-//
-//        }
+        if !checkPassword(name: nameText, password: passwordText) {
+            print("Invalid passsword")
+
+        }
         
     }
     
@@ -58,18 +58,13 @@ func AlamoLoginPost(user username: String , password : String ){
         let jsonData = try JSONEncoder().encode(olduser)
         let params = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments) as? [String: Any]
         
-       
-        
-        print("Before logging in at "+globalData.loginURL)
-        
         Alamofire.request( globalData.loginURL , method: .post, parameters: params, encoding: JSONEncoding.default)
                 .responseJSON { response in
                     if let data = response.data {
                         do{
                             let json = try JSON(data: data)
                             globalData.accessToken = json["token"].string!
-                            print(globalData.accessToken)
-                            self.callDashboard(with: globalData.accessToken)
+                            self.callDashboard()
                         } catch{
                             print("Server sent not data")
                         }
@@ -81,20 +76,27 @@ func AlamoLoginPost(user username: String , password : String ){
     }
     
     
-    func callDashboard(with token: String)
+    func callDashboard()
     {
-        print("Token is ")
-        print(token)
-        let bearer = "Bearer "+token
-        print(bearer)
+        let bearer = "Bearer "+globalData.accessToken
+//        print(bearer)
         
         let headers: HTTPHeaders = [
             "Authorization": bearer,
             "Accept": "application/json"
         ]
-        print("About to call dashboard")
-        Alamofire.request( globalData.dashBoardURL , method: .get, headers: headers).responseJSON { response in
-            
+        print(headers)
+        
+        print("\n")
+    
+        globalData.dashBoardURL = "https://pmn-api-1-staging-v1.herokuapp.com/dashboard/2"
+           print("\n")
+            print(globalData.dashBoardURL)
+           print("\n")
+        
+        
+        Alamofire.request( globalData.dashBoardURL , method: .get, headers: headers ).responseJSON { response in
+//            print(bearer)
             guard let data = response.data else { print("No response from server on dashboard"); return }
             print(response.result.value!)
             guard let name = String(data: data, encoding: .utf8) else {print("Didn't get name "); return }
@@ -108,4 +110,5 @@ func AlamoLoginPost(user username: String , password : String ){
         vc.name = "Hello " + name
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
 }

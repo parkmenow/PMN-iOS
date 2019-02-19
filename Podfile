@@ -12,6 +12,4 @@ pod 'Alamofire', '~> 4.8'
 pod 'SVProgressHUD'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
-pod 'Stripe'
-#pod 'AFNetworking', '~> 2.5.4'
 end

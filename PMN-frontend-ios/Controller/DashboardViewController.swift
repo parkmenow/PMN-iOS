@@ -178,6 +178,9 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                         print(json)
                         //PARSE JSON
                         //CALL ListingViewController with parsed data
+                        
+                        
+                        
                         self.callListings()
                     } catch{
                         print("Server sent not data")

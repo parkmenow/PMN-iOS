@@ -10,10 +10,10 @@ import Foundation
 
 enum globalData {
     static var google_map_key : String = "AIzaSyAzesTC93HNwqUfAS2ONoc2_LHygrLQ4qU"
-    static var ip : String = "http://192.168.10.111:8080"
-    static var loginURL : String = "http://192.168.10.111"+"/login"
-    static var registerURL : String = "http://192.168.10.111:8080"+"/api/v1/signup"
-    static var dashBoardURL : String = "http://192.168.10.111:8080"+"/api/v1/dashboard/1"
+    static var ip : String = "https://pmn-api-1-staging-v1.herokuapp.com"
+    static var loginURL : String = "https://pmn-api-1-staging-v1.herokuapp.com"+"/login"
+    static var registerURL : String = "https://pmn-api-1-staging-v1.herokuapp.com"+"/signup"
+    static var dashBoardURL : String = "https://pmn-api-1-staging-v1.herokuapp.com/dashboard/1"
     static var accessToken = ""
     static var listingURL = "http://192.168.1.114:8080"+"/api/v1/mylisting"
     static let stripePublicKey = "pk_test_Mv6f0boaChFBAmBOiuiwIgLs"
