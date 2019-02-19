@@ -25,4 +25,13 @@ struct slot : Codable {
         self.SpotID = SpotID
         self.Available = Available
     }
+    
+    init(){
+        self.ID = 0
+        self.StartTime = ""
+        self.EndTime = ""
+        self.Price = 0
+        self.SpotID = 0
+        self.Available = false
+    }
 }

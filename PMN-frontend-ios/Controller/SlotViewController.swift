@@ -10,17 +10,24 @@ import UIKit
 
 class SlotViewController: UIViewController {
 
+    @IBOutlet weak var slotID: UITextField!
+    @IBOutlet weak var startTime: UITextField!
+    @IBOutlet weak var endTime: UITextField!
+    @IBOutlet weak var price: UITextField!
+    @IBOutlet weak var availabilitySwitch: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.slotID.text = String(sloti.ID)
+        self.startTime.text = sloti.StartTime
+        self.endTime.text = sloti.EndTime
+        self.price.text = String(sloti.Price)
+        self.availabilitySwitch.isOn = sloti.Available
 
-        // Do any additional setup after loading the view.
+       
     }
+    var sloti = slot()
 
-    @IBOutlet weak var descriptionField: UITextField!
-    
-    @IBOutlet weak var priceField: UITextField!
-    
-    @IBOutlet weak var AvailabilityField: UITextView!
     @IBAction func confirmButtonPressed(_ sender: UIButton) {
     }
     @IBAction func deleteButtonPressed(_ sender: UIButton) {

@@ -1,5 +1,5 @@
 //
-//  SlotTableViewCell.swift
+//  AvailabilityTableViewCell.swift
 //  PMN-frontend-ios
 //
 //  Created by bharath on 2019/02/20.
@@ -8,17 +8,14 @@
 
 import UIKit
 
-class SlotTableViewCell: UITableViewCell {
+class AvailabilityTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var slotID: UILabel!
     @IBOutlet weak var spotID: UILabel!
-    @IBOutlet weak var noOfSpots: UILabel!
-    @IBOutlet weak var descriptionField: UILabel!
-    @IBOutlet weak var propertyID: UILabel!
-    
-    
-    
-    
-    
+    @IBOutlet weak var strtTime: UILabel!
+    @IBOutlet weak var endTme: UILabel!
+    @IBOutlet weak var price: UILabel!
+    @IBOutlet weak var availability: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

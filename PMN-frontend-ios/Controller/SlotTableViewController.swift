@@ -22,7 +22,7 @@ class SlotTableViewController: UIViewController  ,UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "SlotTableViewCell", for: indexPath) as! SlotTableViewCell
         
         cell.descriptionField.text = spots[indexPath.row].Description
-        cell.noofSlots.text = String(spots[indexPath.row].Slots.count)
+        cell.noOfSpots.text = String(spots[indexPath.row].Slots.count)
         cell.propertyID.text = String(spots[indexPath.row].PropertyID)
         cell.spotID.text = String(spots[indexPath.row].ID)
         
@@ -40,11 +40,16 @@ class SlotTableViewController: UIViewController  ,UITableViewDelegate, UITableVi
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.rowHeight = 132
+ 
     
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        var slotti = spots[indexPath.row].Slots
+        let slotti = spots[indexPath.row].Slots
+        
+        let vc = AvailabilityViewController(nibName: "AvailabilityViewController", bundle: nil)
+        vc.Slottt = slotti
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 }

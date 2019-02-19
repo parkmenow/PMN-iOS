@@ -116,11 +116,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="description" destination="u5G-MP-5by" id="vC2-8e-d5H"/>
-                <outlet property="descriptionField" destination="u5G-MP-5by" id="Ijm-Ht-c8K"/>
-                <outlet property="noofSlots" destination="jNc-xp-TmV" id="zRi-OV-Ahv"/>
-                <outlet property="propertyID" destination="v9r-3Q-rwe" id="DwN-o3-jyP"/>
-                <outlet property="spotID" destination="V2E-eQ-dm6" id="h0I-5a-rzE"/>
+                <outlet property="descriptionField" destination="u5G-MP-5by" id="VY4-T3-bAd"/>
+                <outlet property="noOfSpots" destination="jNc-xp-TmV" id="Uqp-Ag-aN2"/>
+                <outlet property="propertyID" destination="v9r-3Q-rwe" id="QUc-dS-eKN"/>
+                <outlet property="spotID" destination="V2E-eQ-dm6" id="EFY-xs-gWt"/>
             </connections>
             <point key="canvasLocation" x="-8" y="175.86206896551727"/>
         </tableViewCell>
