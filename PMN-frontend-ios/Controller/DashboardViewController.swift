@@ -55,6 +55,12 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     @IBAction func ParkMeButtonPressed(_ sender: Any) {
         
+        let userId = "3"
+        let startTime = ""
+        let endTime = ""
+        
+        let parameters : [String:Any] = ["uname"]
+        
         
     }
     
