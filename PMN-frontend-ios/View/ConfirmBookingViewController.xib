@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConfirmBookingViewController" customModule="PMN_frontend_ios" customModuleProvider="target">
             <connections>
                 <outlet property="endID" destination="n33-Zl-gqP" id="jJU-8E-ZLJ"/>
+                <outlet property="paymentMethod" destination="io5-Ob-ywt" id="PqA-th-H0l"/>
                 <outlet property="price" destination="QWH-1v-OT3" id="Ol9-ex-3UU"/>
                 <outlet property="propertID" destination="Fuh-Kz-LE4" id="HLy-Uv-m3p"/>
                 <outlet property="slotID" destination="72b-5S-Nd1" id="IGL-O2-Br6"/>
@@ -189,6 +190,27 @@
                         <constraint firstAttribute="width" secondItem="vBI-go-3AV" secondAttribute="height" multiplier="343:23" id="jIF-xV-pFz"/>
                     </constraints>
                 </view>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="io5-Ob-ywt">
+                    <rect key="frame" x="163" y="434" width="51" height="31"/>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I91-Wp-FLB">
+                    <rect key="frame" x="34" y="439" width="48" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="I91-Wp-FLB" secondAttribute="height" multiplier="16:7" id="Oia-wO-Hd2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="953-J0-jTD">
+                    <rect key="frame" x="297" y="439" width="37" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="953-J0-jTD" secondAttribute="height" multiplier="37:21" id="l6t-FB-I2G"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -202,17 +224,23 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="w4L-s9-ls2" secondAttribute="trailing" constant="16" id="DbV-ZA-lCL"/>
                 <constraint firstItem="w4L-s9-ls2" firstAttribute="top" secondItem="YQN-3y-ff7" secondAttribute="bottom" constant="43" id="GTQ-EO-WBV"/>
                 <constraint firstItem="GKs-Og-Y0U" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="GTk-yF-Enc"/>
+                <constraint firstItem="iUZ-zh-PUK" firstAttribute="top" secondItem="io5-Ob-ywt" secondAttribute="bottom" constant="40" id="MxM-Ie-q6b"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MaK-qf-kcc" secondAttribute="trailing" constant="16" id="OVG-wg-TUe"/>
+                <constraint firstItem="io5-Ob-ywt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PU8-II-Dz5"/>
                 <constraint firstItem="iUZ-zh-PUK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="UDX-jn-dzD"/>
+                <constraint firstItem="953-J0-jTD" firstAttribute="top" secondItem="MaK-qf-kcc" secondAttribute="bottom" constant="36" id="VTx-8f-ccn"/>
                 <constraint firstItem="MNi-6f-2zb" firstAttribute="top" secondItem="GKs-Og-Y0U" secondAttribute="bottom" constant="47" id="ZuQ-we-BR8"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MNi-6f-2zb" secondAttribute="trailing" constant="16" id="bUP-ol-Iz8"/>
                 <constraint firstItem="9vm-S5-nev" firstAttribute="top" secondItem="iUZ-zh-PUK" secondAttribute="bottom" constant="19" id="bWi-J6-HUz"/>
+                <constraint firstItem="I91-Wp-FLB" firstAttribute="top" secondItem="MaK-qf-kcc" secondAttribute="bottom" constant="36" id="d0B-0p-kk3"/>
                 <constraint firstItem="MNi-6f-2zb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="d3v-O7-Fsd"/>
+                <constraint firstItem="io5-Ob-ywt" firstAttribute="leading" secondItem="I91-Wp-FLB" secondAttribute="trailing" constant="81" id="dcw-CA-aXq"/>
                 <constraint firstItem="GKs-Og-Y0U" firstAttribute="top" secondItem="vBI-go-3AV" secondAttribute="bottom" constant="34" id="frN-xz-xMe"/>
                 <constraint firstItem="w4L-s9-ls2" firstAttribute="width" secondItem="w4L-s9-ls2" secondAttribute="height" multiplier="343:23" id="g1I-z7-3jQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vBI-go-3AV" secondAttribute="trailing" constant="16" id="geB-TP-UbR"/>
                 <constraint firstItem="MaK-qf-kcc" firstAttribute="top" secondItem="MNi-6f-2zb" secondAttribute="bottom" constant="50" id="myA-q6-Lsj"/>
                 <constraint firstItem="vBI-go-3AV" firstAttribute="width" secondItem="vBI-go-3AV" secondAttribute="height" multiplier="343:23" id="pJ0-iB-wsf"/>
+                <constraint firstItem="953-J0-jTD" firstAttribute="leading" secondItem="io5-Ob-ywt" secondAttribute="trailing" constant="85" id="qI3-p7-pdA"/>
                 <constraint firstItem="9vm-S5-nev" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rPN-EU-mgB"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="9vm-S5-nev" secondAttribute="bottom" constant="64" id="uvy-vt-TzI"/>
                 <constraint firstItem="MaK-qf-kcc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="vd1-MJ-taA"/>

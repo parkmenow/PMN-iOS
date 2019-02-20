@@ -7,6 +7,7 @@ PODS:
     - GoogleMaps/Base
   - GooglePlaces (3.0.2):
     - GoogleMaps/Base (= 3.0.2)
+  - Stripe (14.0.0)
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (4.2.0)
 
@@ -14,6 +15,7 @@ DEPENDENCIES:
   - Alamofire (~> 4.8)
   - GoogleMaps
   - GooglePlaces
+  - Stripe
   - SVProgressHUD
   - SwiftyJSON
 
@@ -22,6 +24,7 @@ SPEC REPOS:
     - Alamofire
     - GoogleMaps
     - GooglePlaces
+    - Stripe
     - SVProgressHUD
     - SwiftyJSON
 
@@ -29,9 +32,10 @@ SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   GoogleMaps: 941cd655e009b4d8e42df19a3d749bc3fccec973
   GooglePlaces: c086e0055dc5f0177d7c9d65fc77a1734f9a4825
+  Stripe: db29ad197c74aca6fb981e4e8355cf7ebd0fca5a
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 8cc212b5f2054c93446a04e456848039d8e253d9
+PODFILE CHECKSUM: 7a4188bc19522517e4a6b21dbd17701cdec1f86b
 
 COCOAPODS: 1.5.3
