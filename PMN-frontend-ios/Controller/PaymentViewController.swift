@@ -12,11 +12,13 @@ import SwiftyJSON
 
 
 class PaymentViewController: UIViewController {
-
+    //TODO
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.AmountToPay.text = String(properti.Spots[0].Slots[0].Price)
     }
     
     @IBOutlet weak var nameOnCard: UITextField!
@@ -73,7 +75,7 @@ class PaymentViewController: UIViewController {
         print(parameters)
         print(headers)
         
-        Alamofire.request( globalData.chargeURL , method: .patch , parameters: parameters, encoding: JSONEncoding.default ,headers:headers)
+        Alamofire.request( globalData.chargeURL , method: .post , parameters: parameters, encoding: JSONEncoding.default ,headers:headers)
             .responseJSON { response in
                 if let data = response.data {
                         print(response.result.value!)

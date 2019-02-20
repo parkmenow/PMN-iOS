@@ -79,13 +79,8 @@ class ConfirmBookingViewController: UIViewController {
                 if let data = response.data {
                     do{
                         print(data)
-                        print(response.result.value!)
-//                        let json = try JSON(data: data)
-//                        print(json)
+                        
                     }
-//                    } catch{
-//                        print("Server sent no data")
-//                    }
                 }
         }
       

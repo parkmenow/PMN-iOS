@@ -67,21 +67,16 @@ class DashboardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         let vehicleType = selected+1 //1 index
         let lat = location.coordinate.latitude as Double
         let lon = location.coordinate.longitude as Double
-        let testsrt = "2006-01-02T14:00:00.000Z"
-        let testtime = "2006-01-02T15:00:00.000Z"
-//        let srttime = self.startDate.text!+"T"+self.startHr.text!+"00:00.000Z"
-//        let endtime = self.endDate.text!+"T"+self.endHr.text!+"00:00.000Z"
+        let srttime = self.startDate.text!+"T"+self.startHr.text!+"00:00.000Z"
+        let endtime = self.endDate.text!+"T"+self.endHr.text!+"00:00.000Z"
 
         let parameters : [String: Any] = [
             "Type" : vehicleType,
             "Lat": lat,
             "Long": lon,
-            "StartTime" : testsrt,
-            "EndTime" : testtime
+            "StartTime" : srttime,
+            "EndTime" : endtime
         ]
-//        let prop = getProperty()
-//        instantiateParkingview(with:prop)
-        //TODO uncomment to make dynamic calls
         AlamoPostParkMeNow(with: parameters)
       
         

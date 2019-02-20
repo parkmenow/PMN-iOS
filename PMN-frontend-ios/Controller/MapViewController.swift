@@ -41,22 +41,6 @@ class MapViewController: UIViewController {
         marker.map = mapView
         
     }
-    
-    func setReversedLocation(with location: CLLocation){
-        CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
-            
-            guard let placemark = placemarks?.first else {
-                let errorString = error?.localizedDescription ?? "Unexpected Error"
-                print("Unable to reverse geocode the given location. Error: \(errorString)")
-                return
-            }
-            
-            let reversedGeoLocation = ReversedGeoLocation(with: placemark)
-            
-            
-        }
-    }
-
 }
 
 struct ReversedGeoLocation {
